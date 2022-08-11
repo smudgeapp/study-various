@@ -6,12 +6,12 @@ Some handy functions for MS Excel.
 
 1. Open excel and press Alt+F11 to open VBA console.
 2. Copy this code into a new blank module.
-3. Then save the file as .xlam.
-4. Copy the .xlam file into ../AppData/Microsoft/AddIns - (path may vary depending on excel version/windows version/general local machine setup).
+3. Then save the file as 'ExcelAddIn' with extension '.xlam'.
+4. Copy the .xlam extension file into ../AppData/Microsoft/AddIns - (path may vary depending on excel version/windows version/general local machine setup).
 
 ### REFERENCE
 
-1. aySumIf(sumRange As Range, colSum As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range)
+1. **aySumIf(sumRange As Range, colSum As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range)**
 
 Regular sumif, takes criteria from a single column, this method takes a criteria from a column and a row to match values. 
 
@@ -24,9 +24,9 @@ For multiple criterias (sumifs) in column or rows, convenience method is to conc
 - rowCriteria = criteria for addition in rows.
 - rowRange = row range to search for criteria.
 
-2. ayAverageIf(averageRange As Range, [to be continued....]
+2. **ayAverageIf(averageRange As Range, [to be continued....]**
 
-3. ayStDevIf(dataRange As Range, criteria, criteriaRange As Range)
+3. **ayStDevIf(dataRange As Range, criteria, criteriaRange As Range)**
 
 Equivalent of basic excel sumif function for calculating standard deviation.
 
@@ -34,14 +34,14 @@ Equivalent of basic excel sumif function for calculating standard deviation.
 - criteria - criteria of the values to be selected
 - criteriaRange - range of criteria values.
 
-4. ayRangeRef(rangeRef As Range, Optional colIncrement as Variant = 0)
+4. **ayRangeRef(rangeRef As Range, Optional colIncrement as Variant = 0)**
 
 It outputs the excel format range reference as a string. This can be used to provide a single cell reference to various automation macros. Rather than having to modify the range in the macro itself, only update the range in the referenced cell.
 
 - rangeRef - range for which range string is required
 - colIncrement - optional value defaults to 0. When this value is specified, the output column will be incremented by the column value of the specified range passed as rangeRef.
 
-5. aySumIf2(sumRange As Range, colSum, colCriteria, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)
+5. **aySumIf2(sumRange As Range, colSum, colCriteria, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
 
 Modified aySumIf to take additional criteria string with an operator. Originally, it was written to sum monthly financial data. The special criteria would specify the operator (>, <, =, >=, <=) along with the number of month. For instance, ">=9" would only sum values for months with serial number greater than and equal to 9. This was helpful in obtaining sums of, for instance, different forecast scenarios for the same period, upto a specific number of months.
 
