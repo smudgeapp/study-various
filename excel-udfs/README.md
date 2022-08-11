@@ -1,15 +1,15 @@
-# EXCEL USER-DEFINED FUNCTIONS
+# Excel User-Defined Functions
 
 Some handy functions for MS Excel.
 
-### INSTRUCTIONS
+### Instructions
 
 1. Open excel and press Alt+F11 to open VBA console.
 2. Copy this code into a new blank module.
 3. Then save the file as 'ExcelAddIn' with extension '.xlam'.
 4. Copy the .xlam extension file into ../AppData/Microsoft/AddIns - (path may vary depending on excel version/windows version/general local machine setup).
 
-### REFERENCE
+### Reference
 
 1. **aySumIf(sumRange As Range, colSum As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range)**
 
