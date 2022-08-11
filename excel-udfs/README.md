@@ -15,9 +15,9 @@ Some handy functions for MS Excel.
 
 Regular sumif, takes criteria from a single column, this method takes a criteria from a column and a row to match values. 
 
-For multiple criterias (sumifs) in column or rows, convenience method is to concatenate the criteria into a single string/cell and then apply the formula for the unique values.
+For multiple criteria (sumifs equivalent) in column or rows, convenience method is to concatenate the criteria into a single string/cell and then apply the formula for the unique values.
 
-- sumRange = range of values to be added
+- sumRange = range of values to be added. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange
 - colSum = criteria determining whether addition is to be done over rows or columns. TRUE = sum columns
 - colCriteria = criteria for addition in columns.
 - colRange = column range to search for criteria.
