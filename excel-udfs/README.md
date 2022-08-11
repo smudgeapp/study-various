@@ -30,16 +30,16 @@ For multiple criteria (sumifs equivalent) in column or rows, convenience method 
 
 Equivalent of basic excel sumif function for calculating standard deviation.
 
-- dataRange - range of values for which standard deviation is to be calculated
-- criteria - criteria of the values to be selected
-- criteriaRange - range of criteria values.
+- dataRange = range of values for which standard deviation is to be calculated
+- criteria = criteria of the values to be selected
+- criteriaRange = range of criteria values.
 
 4. **ayRangeRef(rangeRef As Range, Optional colIncrement as Variant = 0)**
 
 It outputs the excel format range reference as a string. This can be used to provide a single cell reference to various automation macros. Rather than having to modify the range in the macro itself, only update the range in the referenced cell.
 
-- rangeRef - range for which range string is required
-- colIncrement - optional value defaults to 0. When this value is specified, the output column will be incremented by the column value of the specified range passed as rangeRef.
+- rangeRef = range for which range string is required
+- colIncrement = optional value defaults to 0. When this value is specified, the output column will be incremented by the column value of the specified range passed as rangeRef.
 
 5. **aySumIf2(sumRange As Range, colSum, colCriteria, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
 
@@ -47,11 +47,11 @@ Modified aySumIf to take additional criteria string with an operator. Originally
 
 Depending on the nature of data this could be applied to any other kind of dataset.
 
-- sumRange - range of values to be added.
-- colSum - boolean value to specify whether to sum values in columns or rows. TRUE = column sums
+- sumRange = range of values to be added. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange
+- colSum = boolean value to specify whether to sum values in columns or rows. TRUE = column sums
 - colCriteria = criteria for addition in columns.
 - colRange = column range to search for criteria.
 - rowCriteria = criteria for addition in rows.
 - rowRange = row range to search for criteria.
-- specialCriteria - equality criteria (>, <, =, >=, <=) specific value as a string. ">=9", "<=3".
-- specialRange - range of values to match the special criteria.
+- specialCriteria = equality criteria (>, <, =, >=, <=) specific value as a string. ">=9", "<=3".
+- specialRange = range of values to match the special criteria.
