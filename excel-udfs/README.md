@@ -8,6 +8,7 @@ Some handy functions for MS Excel.
 2. Copy this code into a new blank module.
 3. Then save the file as 'ExcelAddIn' with extension '.xlam'.
 4. Copy the .xlam extension file into ../AppData/Microsoft/AddIns - (path may vary depending on excel version/windows version/general local machine setup).
+5. Restart excel, and this should appear in the AddIns. Select the checkbox to activate.
 
 ### Reference
 
