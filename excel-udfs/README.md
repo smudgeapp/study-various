@@ -24,7 +24,20 @@ For multiple criteria (sumifs equivalent) in column or rows, convenience method 
 - rowCriteria = criteria for addition in rows.
 - rowRange = row range to search for criteria.
 
-2. **ayAverageIf(averageRange As Range, [to be continued....]**
+2. **ayAverageIf(averageRange As Range, colAvg As Boolean, follow As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range)**
+
+This is similar to aySumIf, that is it matches criteria over given range of columns and rows and calculates the average.
+
+- averageRange = range of values for calculating average. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange.
+- colAvg = criteria determining whether average is to be done over rows or columns. TRUE = average columns
+- follow = when this is true, the criteria for the dimension over which average is to be calculated 'follows' the criteria matched with the other dimension. 
+  - This is used when a specific criteria is to be applied to each value in the averageRange, for instance, eliminating values if they are above/below a certain number of standard deviations.
+  - As a consequence, for follows to work, the range of the dimension over which average is to be calculated has to match the dimensions of the averageRange.
+  - For example, when colAvg = TRUE and follows = TRUE, first the matching row will be identified, then column value will be identified against that specific row number of the colRange. Therefore, colRange has to have number of rows equal to the rowRange which (has to be) is already equal to the number of rows of the averageRange.
+- colCriteria = criteria for average in columns.
+- colRange = column range to search for criteria.
+- rowCriteria = criteria for average in rows.
+- rowRange = row range to search for criteria.
 
 3. **ayStDevIf(dataRange As Range, criteria, criteriaRange As Range)**
 
@@ -41,7 +54,7 @@ It outputs the excel format range reference as a string. This can be used to pro
 - rangeRef = range for which range string is required
 - colIncrement = optional value defaults to 0. When this value is specified, the output column will be incremented by the column value of the specified range passed as rangeRef.
 
-5. **aySumIf2(sumRange As Range, colSum, colCriteria, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
+5. **aySumIf2(sumRange As Range, colSum As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
 
 Modified aySumIf to take additional criteria string with an operator. Originally, it was written to sum monthly financial data. The special criteria would specify the operator (>, <, =, >=, <=) along with the number of month. For instance, ">=9" would only sum values for months with serial number greater than and equal to 9. This was helpful in obtaining sums of, for instance, different forecast scenarios for the same period, upto a specific number of months.
 
