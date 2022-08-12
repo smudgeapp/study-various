@@ -17,27 +17,27 @@ Regular sumif, takes criteria from a single column, this method takes a criteria
 
 For multiple criteria (sumifs equivalent) in column or rows, convenience method is to concatenate the criteria into a single string/cell and then apply the formula for the unique values.
 
-- sumRange = range of values to be added. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange
+- sumRange = range of values to be added.
 - colSum = criteria determining whether addition is to be done over rows or columns. TRUE = sum columns
-- colCriteria = criteria for addition in columns.
-- colRange = column range to search for criteria.
+- colCriteria = criteria for addition in columns. 
+- colRange = column range to search for criteria. Columns should match the number of columns in the sumRange.
 - rowCriteria = criteria for addition in rows.
-- rowRange = row range to search for criteria.
+- rowRange = row range to search for criteria. Rows should match the number of rows in the sumRange.
 
 2. **ayAverageIf(averageRange As Range, colAvg As Boolean, follow As Boolean, colCriteria, colRange As Range, rowCriteria, rowRange As Range)**
 
 This is similar to aySumIf, that is it matches criteria over given range of columns and rows and calculates the average.
 
-- averageRange = range of values for calculating average. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange.
+- averageRange = range of values for calculating average. 
 - colAvg = criteria determining whether average is to be done over rows or columns. TRUE = average columns
 - follow = when this is true, the criteria for the dimension over which average is to be calculated 'follows' the criteria matched with the other dimension. 
   - This is used when a specific criteria is to be applied to each value in the averageRange, for instance, eliminating values if they are above/below a certain number of standard deviations.
   - As a consequence, for follows to work, the range of the dimension over which average is to be calculated has to match the dimensions of the averageRange.
   - For example, when colAvg = TRUE and follows = TRUE, first the matching row will be identified, then column value will be identified against that specific row number of the colRange. Therefore, colRange has to have number of rows equal to the rowRange which (has to be) is already equal to the number of rows of the averageRange.
 - colCriteria = criteria for average in columns.
-- colRange = column range to search for criteria.
+- colRange = column range to search for criteria. Columns should match the number of columns in the averageRange, except when follows = TRUE and colAvg = TRUE, then this range should match the row and column dimensions of averageRange.
 - rowCriteria = criteria for average in rows.
-- rowRange = row range to search for criteria.
+- rowRange = row range to search for criteria. Rows should match the number of rows in the averageRange, except when follows = TRUE and colAvg = FALSE, then this range should match the row and column dimensions of averageRange.
 
 3. **ayStDevIf(dataRange As Range, criteria, criteriaRange As Range)**
 
@@ -63,8 +63,8 @@ Depending on the nature of data this could be applied to any other kind of datas
 - sumRange = range of values to be added. Range columns should match the number of columns in the colRange and rows should match the rows in the rowRange
 - colSum = boolean value to specify whether to sum values in columns or rows. TRUE = column sums
 - colCriteria = criteria for addition in columns.
-- colRange = column range to search for criteria.
+- colRange = column range to search for criteria. Columns should match the number of columns in the sumRange.
 - rowCriteria = criteria for addition in rows.
-- rowRange = row range to search for criteria.
+- rowRange = row range to search for criteria. Rows should match the number of rows in the sumRange.
 - specialCriteria = equality criteria (>, <, =, >=, <=) specific value as a string. ">=9", "<=3".
 - specialRange = range of values to match the special criteria.
