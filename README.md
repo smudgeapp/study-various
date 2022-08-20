@@ -6,5 +6,5 @@ For more information (questions, issues, comments, verification, confirmation, c
 
 
 
-*The repo got accidentally overwritten. The projects are obviously still safe on the local machine but reference and some modified files have to be re-done. Till then...*
+UPDATE: *The repo got accidentally overwritten. The projects are obviously still safe on the local machine but reference and some modified files have to be re-done. Till then...*
 
