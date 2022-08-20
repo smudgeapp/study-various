@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Cheat-O-Meter</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="termsofuse"><u>Terms and Conditions of Use</u></string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
