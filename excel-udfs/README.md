@@ -11,3 +11,6 @@ A few handy Excel UDFs.
 4. Save the file in ../Users/[username]/AppData/Roaming/Microsoft/AddIns
 
 Thats it! It should now appear under Excel AddIns in the Options.
+
+
+*The repo got accidentally overwritten. The code was obviously available on local machine but the reference has to be re-written. Till then ...*
