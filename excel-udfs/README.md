@@ -26,7 +26,7 @@ Regular excel averageif does average across criteria in a column. This takes a c
 
 This is equivalent of regular excel sumif for calculating standard deviation.
 
-**aySumIf2(sumRange As Range, colSum, colCriteria As Boolean, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
+**aySumIf2(sumRange As Range, colSum As Boolean, colCriteria As Boolean, colRange As Range, rowCriteria, rowRange As Range, specialCriteria, Optional specialRange As Range)**
 
 This is a modified version of aySumIf. it takes an additional specialCriteria as an operator (>, <, =, etc.). This comes in handy when addition is to be done by some numeric criteria, in addition to the row and column criteria. For instance, values greater than some fixed value, or values only occuring in months numbered greater than 9, i.e. October, November and December.
 
