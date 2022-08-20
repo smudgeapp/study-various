@@ -8,5 +8,5 @@ It uses OpenCV343 library, haarcascade classifier to detect facial dimensions. O
 
 Wrote this a while back so much of the code is outdated, besides there are much better facial detection (and image detection in general) algorithms out there now.
 
-For the rest of the code my feelings are best illustrated by this meme ![alt text](https://github.com/smudgeapp/study-various/cheatometer/
+For the rest of the code my feelings are best illustrated by this meme ![alt text](https://github.com/smudgeapp/study-various/cheatometer/meme.jpg)
 
