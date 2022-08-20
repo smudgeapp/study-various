@@ -1,3 +1,3 @@
-*repo update in progree*
+*repo update in progress*
 
 # Augmented Yardstick
