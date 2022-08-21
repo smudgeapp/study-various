@@ -4,6 +4,8 @@ This app uses research on the relationship between facial features and likelihoo
 
 Also includes a questionnaire form of test on the subject.
 
+The app is published at https://play.google.com/store/apps/details?id=com.smudge.cheat_o_meter&hl=en_IE&gl=US
+
 It uses OpenCV343 library, haarcascade classifier to detect facial dimensions. OpenCV is not included and can be obtained from https://opencv.org/android/. Then just add the library to the project. OpenCV implementation code is included, but may have to be updated depending on the OpenCV version.
 
 Wrote this a while back so much of the code is outdated, besides there are much better facial detection (and image detection in general) algorithms out there now.
