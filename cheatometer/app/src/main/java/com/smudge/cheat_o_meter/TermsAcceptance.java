@@ -121,13 +121,7 @@ public class TermsAcceptance extends AppCompatActivity {
         String texts = "<html><body><p align=\"justify\"><font size=\"2\" color=\"white\">";
         String texte = "</font></p></body></html>";
 
-        String termsbrief = "Cheat-O-Meter is intended for ENTERTAINMENT purposes only and should be treated as such. It does some calculations on certain" +
-                " behavioral/attitudinal/personality traits and/or physical characteristics based on scientific research. These calculations are done" +
-                " on input provided by the user. This does NOT provide any confirmed evidence regarding any person's(s') personality and/or attitudes and behavior.<br/>" +
-                "<br/>" +
-                "Cheat-O-Meter also collects and retains ONLY the user input data provided as part of operating the features of the app. Cheat-O-Meter DOES NOT collect any other personal and/or sensitive information.<br/>" +
-                "<br/>" +
-                "Please read and accept the Terms and Conditions of Use and the Privacy Policy, contained therein, before using Cheat-O-Meter.";
+        String termsbrief = "Please read and accept the Terms and Conditions of Use and the Privacy Policy, contained therein, before using Cheat-O-Meter.";
 
         terms.loadData(texts + termsbrief + texte, "text/html", "utf-8");
 
