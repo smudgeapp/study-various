@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.smudge.cheat_o_meter.MainActivity">
+
+    <com.smudge.cheat_o_meter.FullMeter
+        android:id="@+id/fullmeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+
+    <com.smudge.cheat_o_meter.Pointer
+        android:id="@+id/pointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/alignmentlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"></LinearLayout>
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="12dp"
+        android:textStyle="bold"/>
+
+    <com.smudge.cheat_o_meter.ControlButton
+        android:id="@+id/fbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alignmentlayout"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp" />
+
+    <com.smudge.cheat_o_meter.ControlButton
+        android:id="@+id/qbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alignmentlayout"
+        android:layout_marginTop="70dp"
+        android:layout_alignLeft="@+id/fbutton"
+        android:layout_marginLeft="70dp"/>
+
+    <com.smudge.cheat_o_meter.ControlButton
+        android:id="@+id/cbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alignmentlayout"
+        android:layout_marginTop="70dp"
+        android:layout_alignRight="@+id/rbutton"
+        android:layout_marginRight="70dp"/>
+
+    <com.smudge.cheat_o_meter.ControlButton
+        android:id="@+id/rbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alignmentlayout"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"/>
+
+    <RelativeLayout
+        android:id="@+id/mtextlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/fbutton"
+        android:layout_marginTop="50dp">
+
+        <com.smudge.cheat_o_meter.MeterText
+            android:id="@+id/mtext"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/mtextin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rspnselayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:layout_alignTop="@+id/mtextlayout"
+        android:layout_marginTop="40dp">
+
+        <com.smudge.cheat_o_meter.ResponseText
+            android:id="@+id/rspnsetext"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="10dp"
+            android:text="DID THEY DO  IT?"/>
+
+    </RelativeLayout>
+
+
+
+    <com.smudge.cheat_o_meter.ResponseButton
+        android:id="@+id/yesbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rspnselayout"
+        android:layout_marginLeft="110dp"
+        android:layout_alignTop="@id/mtextlayout"
+        android:layout_marginTop="40dp"/>
+
+    <com.smudge.cheat_o_meter.ResponseButton
+        android:id="@+id/nobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/yesbtn"
+        android:layout_marginLeft="40dp"
+        android:layout_alignTop="@id/mtextlayout"
+        android:layout_marginTop="40dp"/>
+
+    <LinearLayout
+        android:id="@+id/adlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"></LinearLayout>
+
+</RelativeLayout>

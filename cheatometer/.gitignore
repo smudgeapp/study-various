@@ -1,0 +1,12 @@
+*.so
+*.iml
+/key.txt
+/.gradle
+/import-summary.txt
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/openCVLibrary343

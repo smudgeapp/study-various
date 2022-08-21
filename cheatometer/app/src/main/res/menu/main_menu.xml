@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/settings"
+        app:showAsAction="always"
+        android:orderInCategory="100"/>
+
+    <item
+        android:id="@+id/info"
+        android:title="Info"
+        android:icon="@drawable/info_icon"
+        app:showAsAction="always"/>
+
+
+</menu>
