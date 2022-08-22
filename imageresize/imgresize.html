@@ -40,7 +40,7 @@ var startApp = function startAppFn() {
     var outputmod = document.getElementById('outputmod');
     var modctx = outputmod.getContext('2d');
     outputmod.onclick = function (e) {
-        console.log("2nd can click" + e.clientX + " " + e.clientY)
+        //console.log("2nd can click" + e.clientX + " " + e.clientY)
     };
     var resizedImg;
     var rotImg;
@@ -71,15 +71,15 @@ var startApp = function startAppFn() {
 
           
           if (startMark === false) {
-          startPos[0] = e.clientX - cancntxt.canvas.offsetLeft;
-          startPos[1] = e.clientY - cancntxt.canvas.offsetTop;
-            console.log("startpos: " + JSON.stringify(startPos));
-          startMark = true;
+              startPos[0] = e.clientX - cancntxt.canvas.offsetLeft;
+              startPos[1] = e.clientY - cancntxt.canvas.offsetTop;
+                //console.log("startpos: " + JSON.stringify(startPos));
+              startMark = true;
           }
          else {
               endPos[0] = e.clientX - cancntxt.canvas.offsetLeft;
               endPos[1] = e.clientY - cancntxt.canvas.offsetTop;
-              console.log("endPos: " + JSON.stringify(endPos));
+              //console.log("endPos: " + JSON.stringify(endPos));
               cancntxt.strokeStyle = 'blue';  
               cancntxt.strokeRect(startPos[0], startPos[1], endPos[0] - startPos[0], endPos[1] - startPos[1]);
               startMark = false;
@@ -141,7 +141,7 @@ var startApp = function startAppFn() {
         console.log(imgWt + " " + imgHt);
         var wtInput = document.getElementById('width');
       var width = 512;
-      console.log(wtInput.value);
+     
       if (wtInput.value != 0) {
           width = wtInput.value;
       }
@@ -169,14 +169,13 @@ var startApp = function startAppFn() {
             var imgURL = outputmod.toDataURL("image/png", 1);
             var newImg = new Image();
             newImg.src = imgURL;
-            newImg.onload = function () {
-                //console.log(imgURL);
-            modctx.clearRect(0, 0, outputmod.width, outputmod.height);
-            modctx.save();
-            outputmod.width = width;
-            outputmod.height = height;
-            modctx.drawImage(newImg, 0, 0, imgWt, imgHt, 0, 0, width, height);
-            modctx.restore();
+            newImg.onload = function () {               
+                modctx.clearRect(0, 0, outputmod.width, outputmod.height);
+                modctx.save();
+                outputmod.width = width;
+                outputmod.height = height;
+                modctx.drawImage(newImg, 0, 0, imgWt, imgHt, 0, 0, width, height);
+                modctx.restore();
             
             };
              
@@ -203,7 +202,7 @@ console.log(event);
       
       var wtInput = document.getElementById('width');
       var width;
-      console.log(wtInput.value);
+      
       if (wtInput.value != 0) {
           width = wtInput.value;
           output.width = width;
@@ -216,13 +215,7 @@ console.log(event);
       }
        
       var imgObj = new Image();
-      imgObj.src = dataURL;
-          /*
-      output.onclick = function(e) {
-          console.log("imgclick");
-          console.log("imgClick " + e.clientX + " " + e.clientY);
-      };    
-          */
+      imgObj.src = dataURL;     
       
       imgObj.onload = function () {
          if (wtInput.value == 0) {
@@ -249,7 +242,7 @@ console.log(event);
     };
     
     reader.readAsDataURL(input.files[0]);
-    //console.log(input.files[0]);
+    
   };
 
   
