@@ -8,9 +8,7 @@ The entry point for the app is to load an image and resize it.
 
 **Resize**
 
-Image resize width and height have to be specified before loading the image, otherwise it won't work.
-
-If no width and height is specified, image is loaded as is.
+Image resize width and height have to be specified before loading the image, otherwise it will load the image as is.
 
 **Rotate**
 
