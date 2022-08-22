@@ -20,4 +20,6 @@ The default setting can be modified by changing the script. In the html file loo
 
 On the loaded image click on any point, now a start position has been designated. The second click on the image will designate the end position for the split and a rectangle will be automatically drawn.
 
+Then click the 'Split Image' button to obtain the split portion separately.
+
 **For image split to work click on the image in *diagonals*. For example, start click can be anywhere on the image, the second click should move away and down from the first click.**
