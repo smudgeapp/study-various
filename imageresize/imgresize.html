@@ -1,0 +1,266 @@
+<html>
+<style>
+div.a {
+    position: absolute;
+    top: 800px;
+} 
+</style>
+<body>
+
+<div>
+<input type='file' id='fileInput' accept='image/*' ><br>
+
+<input type='text' id='width' name='width' placeholder="width"><br>
+<input type='text' id='height' name='height' placeholder="height"><br>
+<button id='rotate'>Rotate</button>
+<canvas id='output' tabindex="1"></canvas>
+</div>
+
+<div class="a">
+<button id='split'>Split Image</button>
+<canvas id='outputmod' style='border:1px solid #000000;' tabindex="0"></canvas>
+
+</div>
+
+
+<div>
+
+<script>
+
+window.onload = function () {
+    startApp();    
+}
+
+
+var startApp = function startAppFn() {
+    console.log("startApp");
+    var formatimg  = document.createEvent('Event');
+    formatimg.initEvent('formatimg', true, true);
+
+    var outputmod = document.getElementById('outputmod');
+    var modctx = outputmod.getContext('2d');
+    outputmod.onclick = function (e) {
+        console.log("2nd can click" + e.clientX + " " + e.clientY)
+    };
+    var resizedImg;
+    var rotImg;
+    var imgToJpg = function (image) {
+       
+       var win = window.open();
+       win.document.write('<iframe src="' + image  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+
+
+       
+        
+    };
+
+   
+    var output = document.getElementById('output');
+    var startMark = false;
+    var endMark = false;
+    var startPos = [];
+    var endPos = [];
+    var splitHt;
+    var dataURL;
+
+    var cancntxt = output.getContext('2d');
+    
+      output.onclick = function (e) {
+          
+          console.log("output click " + e.clientX + " " + e.clientY);
+
+          
+          if (startMark === false) {
+          startPos[0] = e.clientX - cancntxt.canvas.offsetLeft;
+          startPos[1] = e.clientY - cancntxt.canvas.offsetTop;
+            console.log("startpos: " + JSON.stringify(startPos));
+          startMark = true;
+          }
+         else {
+              endPos[0] = e.clientX - cancntxt.canvas.offsetLeft;
+              endPos[1] = e.clientY - cancntxt.canvas.offsetTop;
+              console.log("endPos: " + JSON.stringify(endPos));
+              cancntxt.strokeStyle = 'blue';  
+              cancntxt.strokeRect(startPos[0], startPos[1], endPos[0] - startPos[0], endPos[1] - startPos[1]);
+              startMark = false;
+          }
+          
+      }; 
+
+      var rotateB = document.getElementById('rotate');
+
+      var rotateImg = function() {
+          
+          if (dataURL != null) { 
+           var width = 512;
+           var wtInput = document.getElementById('width');
+            if (wtInput.value != 0) {
+                width = wtInput.value;
+             }
+           var htInput = document.getElementById('height');
+           var height = 512;
+                if (htInput.value != 0) {
+                    height = htInput.value;
+                    }
+              var canx = output.width / 2;
+              var cany = output.height / 2;
+              var img = new Image();
+              var rotdeg = 90;
+
+              img.src = resizedImg;
+              img.onload = function () {
+                  cancntxt.clearRect(0, 0, output.width, output.height);
+                  cancntxt.save();
+                  cancntxt.translate(canx, cany);
+                  cancntxt.rotate(rotdeg * Math.PI/180);
+                  cancntxt.drawImage(img, -canx, -cany);
+                  cancntxt.restore();
+                  rotImg = output.toDataURL('image/png', 1);
+                  resizedImg = rotImg;
+
+
+              };
+
+              
+          }
+      };
+
+      rotateB.onclick = rotateImg;
+
+      var splitB = document.getElementById('split');
+        var splitImg = function () {
+        var img = new Image();
+        if (rotImg != null) {
+        img.src = rotImg;
+        }
+        else {
+            img.src = resizedImg;
+        }
+        var imgWt = endPos[0] - startPos[0];
+        var imgHt = endPos[1] - startPos[1];
+        console.log(imgWt + " " + imgHt);
+        var wtInput = document.getElementById('width');
+      var width = 512;
+      console.log(wtInput.value);
+      if (wtInput.value != 0) {
+          width = wtInput.value;
+      }
+      var htInput = document.getElementById('height');
+      var height = 512;
+      if (htInput.value != 0) {
+          height = htInput.value;
+      }
+        outputmod.width = imgWt;
+        outputmod.height = imgHt;
+
+        img.onload = function () {
+            
+            modctx.drawImage(img, startPos[0], startPos[1], 
+            imgWt, imgHt, 0, 0, imgWt, imgHt);
+
+            var refreshImg = new Image();
+            refreshImg.src = resizedImg;
+            refreshImg.onload = function () {
+              cancntxt.clearRect(0, 0, output.width, output.height);
+              cancntxt.drawImage(refreshImg, 0, 0, output.width, output.height);  
+            };
+            
+
+            var imgURL = outputmod.toDataURL("image/png", 1);
+            var newImg = new Image();
+            newImg.src = imgURL;
+            newImg.onload = function () {
+                //console.log(imgURL);
+            modctx.clearRect(0, 0, outputmod.width, outputmod.height);
+            modctx.save();
+            outputmod.width = width;
+            outputmod.height = height;
+            modctx.drawImage(newImg, 0, 0, imgWt, imgHt, 0, 0, width, height);
+            modctx.restore();
+            
+            };
+             
+        };
+    };
+    splitB.onclick = splitImg;
+    
+      
+
+var fileInput = document.getElementById('fileInput');
+
+fileInput.onchange = function(event) {
+console.log(event.target);
+console.log(event);
+
+      var input = event.target;
+
+      var reader = new FileReader();
+      reader.onload = function(){
+      dataURL = reader.result;
+     
+      
+      
+      
+      var wtInput = document.getElementById('width');
+      var width;
+      console.log(wtInput.value);
+      if (wtInput.value != 0) {
+          width = wtInput.value;
+          output.width = width;
+      }
+      var htInput = document.getElementById('height');
+      var height;
+      if (htInput.value != 0) {
+          height = htInput.value;
+          output.height = height;
+      }
+       
+      var imgObj = new Image();
+      imgObj.src = dataURL;
+          /*
+      output.onclick = function(e) {
+          console.log("imgclick");
+          console.log("imgClick " + e.clientX + " " + e.clientY);
+      };    
+          */
+      
+      imgObj.onload = function () {
+         if (wtInput.value == 0) {
+             width = imgObj.width;
+             output.width = width;
+         }
+         if (htInput.value == 0) {
+             height = imgObj.height;
+             output.height = height;
+         }
+      
+
+          cancntxt.drawImage(imgObj, 0, 0, 
+          imgObj.width, imgObj.height, 0, 0, width, height);
+           
+         resizedImg = output.toDataURL('image/png', 1);
+        
+          
+        };
+
+      
+       
+
+    };
+    
+    reader.readAsDataURL(input.files[0]);
+    //console.log(input.files[0]);
+  };
+
+  
+ 
+};
+
+
+
+
+
+ </script>
+ </div>
+ </body>
+ </html>
