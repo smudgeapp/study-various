@@ -22,4 +22,6 @@ On the loaded image click on any point, now a start position has been designated
 
 Then click the 'Split Image' button to obtain the split portion separately.
 
-**For image split to work click on the image in *diagonals*. For example, start click can be anywhere on the image, the second click should move away and down from the first click.**
+**IMPORTANT**
+- *For image split to work click on the image in **diagonals**. For example, start click can be anywhere on the image, the second click should move away and down from the first click.*
+- *Clicks should be made from left to right.*
