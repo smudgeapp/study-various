@@ -30,11 +30,9 @@ So for the initial test, a total of around 60 positive and 35 negative images we
 
 However, even with this low amount of data, the results were quite convincing. In some cases, where satellite images were pefectly aligned and properties were in perfect rectangles, measurements were very close to the accurate measurement, +/- 5 sq. yards.
 
-![Screenshot] (img49.png)
+![Screenshot](img49.png)    ![Screenshot](img51.png)
 
-![Screenshot] (img51.png)
-
-This leads to believe that with larger dataset, highly specific annotations and increased features, even without implementing a *recognition* algo, the system might still perform to fulfill its purpose, *in more cases than less*.
+This leads to believe that with larger dataset, highly specific annotations and increased features, even without implementing a *recognition* algo, the system might still perform to fulfill its purpose, in *statistically significant* more cases than less.
 
 ### Instructions
 
