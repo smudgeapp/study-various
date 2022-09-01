@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AYMapping</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" href="yoloStyle.css" type="text/css">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+
+
+
+<style>
+body { margin: 0; padding: 0; }
+#map {position: relative; margin-left: auto; margin-right: auto; top: 100px; width: 200px; height: 200px;}
+#canDiv {position: relative; margin: auto; width: 200px; height: 200px; border: dotted; top: 100px; }
+#buttonDiv {position: relative; margin: 0; float: left; width: auto; height: auto; top: 110px; border: dotted; padding: 10px;}
+</style>
+</head>
+<body>
+
+
+    <style type="text/css">
+    #info {
+        display: block;
+        position: fixed;
+        margin: 0px auto;
+        width: 50%;
+        left: 0px;
+        padding: 10px;
+        top: 50px;
+        border: none;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        color: rgba(255, 0, 0, 1);
+        background: rgba(0, 0, 255, 0.3);
+    }
+
+</style>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<div class="pageSplit left">
+<!--map-->
+<div id="map"></div>
+
+<div id="canDiv">
+<canvas id="mCan" width="200" height="200"></canvas>
+</div>
+<div id="buttonDiv">
+<button id="detect">Detect</button>
+<button id="process">Process</button>
+<button id="stop">Stop Process</button>
+</div>
+
+
+<!--calculation-->
+<div class="calculation-box">
+
+<pre id="info"></pre>
+
+</div>
+
+
+
+<div class="pageSplit right"> 
+
+<table id="crds">
+<tr>
+<th>Area</th>
+<th>Lng</th>
+<th>Lat</th>
+</tr>
+</table>
+
+</div>
+
+<script>
+
+    window.datatransfer.receive("toHTML", (data) => {
+        console.log("received in HTML");
+        console.log(data);
+    });
+    const SAVE_INACTIVE = -2;
+    const SAVE_INIT = -1;
+    const SAVE_PRE = 0;
+    const SAVE_POST = 1;
+    const PROCESS = 1;
+    const SINGLE = 0;
+    const PROC_ACTIVE = 1;
+    const PROC_STOP = 0;
+    var detect = document.getElementById("detect");
+    var process = document.getElementById("process");
+    var stop = document.getElementById("stop");
+    var rowId = 1;
+    var moveCount = 0;
+    var saveCount = 0;
+    var saveLimit = 0;
+    var drawEvent = false;
+    var drawCount = 0;
+    var drawLimit = 0;
+    var saveEvent = SAVE_INACTIVE;
+    var processType = SINGLE;
+    var processActive = PROC_STOP;
+
+	mapboxgl.accessToken = '[mapbox access token]';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/satellite-streets-v9', //hosted style id
+        center: ['[add lng]', '[add lat]'], //lng, lat// starting position
+        bearing: 'set bearing',
+        zoom: 18, // starting zoom
+        interactive: false,
+        preserveDrawingBuffer: true
+    });
+    
+    var mDraw = new MapboxDraw({
+        displayControlsDefault: false,
+        
+        defaultMode: 'draw_point'
+    });
+	
+    var finalDets = [];
+    window.datatransfer.dets("passDets", (dets) => {
+       var loopCount = 0;
+       saveLimit = dets.length;
+       for (var i in dets) {
+           var objType = dets[i].obj;
+           console.log("in det loop " + objType.toString());
+           if (objType == 0) {
+           var mdet = dets[i];
+           var centerX = mdet.x + (mdet.w / 2);
+           var centerY = mdet.y + (mdet.h / 2);
+           var centerPt = new mapboxgl.Point(centerX, centerY);
+           var centerCoord = map.unproject(centerPt);
+           var topleft = map.unproject(new mapboxgl.Point(mdet.x, mdet.y));
+           var topright = map.unproject(new mapboxgl.Point(mdet.x + mdet.w, mdet.y));
+           var bottomright = map.unproject(new mapboxgl.Point(mdet.x + mdet.w, mdet.y + mdet.h));
+           var bottomleft = map.unproject(new mapboxgl.Point(mdet.x, mdet.y + mdet.h));
+           var prob = Math.floor(mdet.prob * 100);
+           var polyId = mDraw.add({
+               type: 'Polygon',
+               coordinates: [
+                        [
+                  [topleft.lng, topleft.lat],
+                  [topright.lng, topright.lat],
+                  [bottomright.lng, bottomright.lat],
+                  [bottomleft.lng, bottomleft.lat],
+                  [topleft.lng, topleft.lat]
+                        ]
+               ]
+           });
+           var desc = {
+               type: 'FeatureCollection',
+               features: [
+                    {
+                        type: 'Feature',
+                        properties: {
+                            description: "det " + i.toString() + " prob " + prob.toString() + "%"
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [topleft.lng, topleft.lat]
+                        }
+                    }
+               ]
+           };
+          
+           map.addSource('desc' + rowId.toString(), {
+               type: 'geojson',
+               data: desc
+           });
+           var layerId = "det " + rowId.toString();
+           
+           
+           map.addLayer({
+               id: layerId,
+               type: 'symbol',
+               source: 'desc' + rowId.toString(),
+               layout: {
+                   'text-field': ['get', 'description'],
+                   'text-justify': 'auto',
+                   'text-font': ['Open Sans Regular'],
+                   'text-variable-anchor': ['top', 'left'],
+                   'text-size': 12
+                   },
+               paint: {
+                   'text-color': '#ff0000'
+               }
+           });
+           
+          // console.log(turf.area(mDraw.get(polyId)));
+           
+           var outTable = document.getElementById('crds');
+           var rItem = outTable.insertRow(rowId);
+           var arCell = rItem.insertCell(0);
+           var lngCell = rItem.insertCell(1);
+           var latCell = rItem.insertCell(2);
+           var calcArea = turf.area(mDraw.get(polyId));
+           arCell.innerHTML = calcArea;
+           lngCell.innerHTML = centerCoord.lng;
+           latCell.innerHTML = centerCoord.lat;
+           rowId += 1;
+           var detData = {
+               type: dets[i].obj,
+               coordinates: centerCoord,
+               area: calcArea
+           }
+           window.datatransfer.send("detCenter", detData);
+           loopCount = i;
+          
+        } 
+     }
+       
+      
+    });
+
+    window.datatransfer.save("saveComplete", (val) => {
+        console.log(val);
+        saveCount += 1;
+        if (saveCount >= saveLimit) {
+            saveCount = 0;
+            saveLimit = 0;
+            if (drawEvent) {
+                drawEvent = false;
+               if (processType == PROCESS) {
+                    saveEvent = SAVE_INIT;
+                 if (moveCount < 3) {
+                        moveMap(map.getCenter(), map.getBearing());
+                    }
+                }
+                else {
+                    saveEvent = SAVE_INACTIVE;
+                }
+            }
+            else {
+                saveEvent = SAVE_POST;
+            }
+        }
+    });
+
+    //console.log(mDraw.getAll());
+    
+    map.addControl(mDraw);
+  
+    var imgUrl;
+    map.on('load', function() {
+        console.log("map on load");        
+        if (processType == PROCESS) {
+            passMapImg();       
+        }
+
+    });
+
+
+    map.on('moveend', () => {
+        map.on('idle', () => {
+            console.log("move idle called");
+            console.log(saveEvent);
+           if (processType == PROCESS) {
+                if (saveEvent == SAVE_INIT) {
+                    if (moveCount < 3) {
+                        passMapImg();
+                    }
+                }
+            }
+            
+        });
+    });
+
+    
+    map.on('draw.render', () => {
+        console.log("draw render called");
+        drawCount += 1
+        if (saveEvent == SAVE_POST) {
+            if (drawCount >= drawLimit) {
+                drawEvent = false;
+                if (processType == PROCESS) {
+                    saveEvent = SAVE_INIT;
+                    if (moveCount < 3) {
+                        moveMap(map.getCenter(), map.getBearing());
+                        }
+                    }
+                else {
+                    saveEvent = SAVE_INACTIVE;
+                    }
+                }
+            }
+        else if (saveEvent == SAVE_PRE) {
+            if (drawCount >= drawLimit) {
+            drawEvent = true;
+            }
+        }
+        if (drawCount >= drawLimit) {
+            drawCount = 0;
+            drawLimit = 0;
+        }
+         
+          
+    });
+    
+    detect.addEventListener('click', () => {
+        passMapImg();
+    });
+
+    process.addEventListener('click', () => {
+        processType = PROCESS;
+        passMapImg();
+    });
+    
+    stop.addEventListener('click', () => {
+        processType = SINGLE;
+
+    })
+
+    function passMapImg() {
+        saveEvent = SAVE_PRE;
+        var imgUrl = map.getCanvas().toDataURL();
+        var hCan = document.getElementById("mCan");
+        var canCtx = hCan.getContext("2d");
+        var img = new Image();
+        img.src = imgUrl;        
+        img.addEventListener("load", () => {
+            canCtx.drawImage(img, 0, 0, hCan.width, hCan.height);
+            window.datatransfer.send("fromHTML", imgUrl);
+        });
+    }
+
+    function moveMap(exCenter, bearing) {
+        console.log(moveCount);
+        //move map after save complete
+        var centPix = map.project(exCenter);
+        var endCds = map.unproject(new mapboxgl.Point(centPix.x * 2, centPix.y));
+        var opts = {units: 'kilometers'};
+        var turfCent = turf.point([exCenter.lng, exCenter.lat]);
+        var turfEndCds = turf.point([endCds.lng, endCds.lat]);
+        var halfDst = turf.distance(turfCent, turfEndCds, opts);
+        var destFeat = turf.destination(turfCent, halfDst * 2, bearing, opts);
+        var destCds = destFeat.geometry.coordinates;
+        var movePos = {
+            center: destCds,
+            zoom: map.getZoom(),
+            pitch: map.getPitch(),
+            bearing: bearing
+        };
+        moveCount += 1;
+        map.jumpTo(movePos);
+    }
+ 
+    
+    
+
+     map.on('mousemove', function (e) {
+         //console.log(e);
+         document.getElementById('info').innerHTML =
+            // e.point is the x, y coordinates of the mousemove event relative
+            // to the top-left corner of the map
+            JSON.stringify(e.point) +        
+            '<br />' +
+            // e.lngLat is the longitude, latitude geographical position of the event
+            JSON.stringify(e.lngLat.wrap());
+            
+    });
+</script>
+
+</body>
+</html>
