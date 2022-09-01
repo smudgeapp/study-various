@@ -24,15 +24,15 @@ The darknet implementation is AlexeyAB fork (https://github.com/AlexeyAB/darknet
 
 ### Initial Test
 
-Initial test was performed to ONLY guage the effectiveness of the system, whether it does what it was intended to do, NOT how well it does that.
+Initial test was performed to ONLY gauge the effectiveness of the system, whether it does what it was intended to do, NOT how well it does that.
 
 So for the initial test, a total of around 60 positive and 35 negative images were used. This is obviously an **extremely low amount** of data for neural net training.
 
 However, even with this low amount of data, the results were quite convincing. In some cases, where satellite images were pefectly aligned and properties were in perfect rectangles, measurements were very close to the accurate measurement, +/- 5 sq. yards.
 
-[!Screenshot] (img49.png)
+![Screenshot] (img49.png)
 
-[!Screenshot] (img51.png)
+![Screenshot] (img51.png)
 
 This leads to believe that with larger dataset, highly specific annotations and increased features, even without implementing a *recognition* algo, the system might still perform to fulfill its purpose, *in more cases than less*.
 
