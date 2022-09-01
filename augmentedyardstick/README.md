@@ -40,7 +40,8 @@ This leads to believe that with larger dataset, highly specific annotations and 
 
 1. Darknet is implemented using AlexeyAB fork through a Node C++ addon.
 2. Weights and config files will have to be added in the node addon implementation.
-3. Source files are included (folder cppsrc) but they will have to be implemented in a Node addon project and then compiled.
+3. Very basic source files are included (folder cppsrc) but they will have to be implemented in a Node addon project and then compiled.
+4. When making the C++ project, darknet and yolo class from AlexeyAB will also have to be included. Add those as per the editor (being used) instructions.
 
 **Node C++ Addon**
 
@@ -52,6 +53,7 @@ This leads to believe that with larger dataset, highly specific annotations and 
 1. The entry point for the electron app is the main.js which loads the index.html. ElectronJS and other node modules would have to be included in the project. 
 2. The index.html contains all the logic for getting the satellite image from the mapbox API. This is then passed through the main.js to C++ addon where detections are run and values returned for getting GIS data.
 3. The app also contains module for writing GIS data to JSON file. Worker threads were used for implementing the writing procedure, but since all the writing has to be done in a single file and the process is I/O intensive, this process may throw a runtime exception from time to time, as multiple threads try to write to the same file.
+4. Information on any other required inputs are contained in the source files.
 
 P.S. tried to fix (sort of brute force) this issue by modifying the JSON file after every save but, at the time, there seems to be no work-around for multi-threading an I/O intensive save process.
 
