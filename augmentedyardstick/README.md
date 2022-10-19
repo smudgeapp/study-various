@@ -1,6 +1,3 @@
-
-*repo update in progress*
-
 # Augmented Yardstick
 
 The idea was to make a simple and repeatable system of property GIS mapping (primarily for taxation purposes). It uses P.J. Reddie's Darknet (YOLO) (https://pjreddie.com/darknet/) trained to detect properties from satellite images, then obtains the GIS coordinates from the mapping service provider, measures the area covered and writes it to a JSON file. 
