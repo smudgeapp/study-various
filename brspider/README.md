@@ -3,7 +3,7 @@
 
 This is a small spider for crawling Google search results from the Business Recorder site and scrape the articles to a JSON file.
 
-Google does not allow automated searches and the Business Recorder site's own search results are not as good (*even though they use Google's Programmable Search - probably some setting issue*). So this manual spider will take input search term and load the search results in the Chrome browser. The urls of the search results can then be collected and scraped.
+Google does not allow automated searches (https://policies.google.com/terms/archive/20020906?hl=en) and the Business Recorder site's own search results are not as good (*even though they use Google's Programmable Search - probably some setting issue*). So this manual spider will take input search term and load the search results in the Chrome browser. The urls of the search results can then be collected and scraped.
 
 The spider will only run Google search and scrape articles from Business Recorder site (brecorder.com/news). The xpath and other search parameters are set for this purpose only. For scraping any other website, these will have to be modified in the script. 
 
