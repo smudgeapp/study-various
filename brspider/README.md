@@ -19,7 +19,8 @@ It uses Selenium and Scrapy for crawling and scraping. Tkinter for the interface
 2. Once results show, press 'Get URLs' to load the urls for scraping.
 3. 'Save URLs' will save urls to a binary file. 'Update URLs' will load previously saved urls. Although the program will handle duplicates, don't worry too much about duplicate urls, Scrapy will automatically ignore scraping duplicate links.
 4. 'Get Articles' will start Scrapy process and save the count, date, url and article content to a JSON file.
-5. 'Reset' will reset the loaded urls. Urls save to file will still persist and can be loaded with 'Update URLs' button.
+5. 'Reset' will reset the loaded urls. Urls saved to file will still persist and can be loaded with 'Update URLs' button.
+6. Some stats show at the bottom of the interface which help keep track of collected urls.
 
 ## Minimal Error Handling
 
