@@ -1,7 +1,7 @@
 # Spider for Crawling Google Searches and Scraping Business Recorder News Articles
 
 
-This is a small spider from crawling Google search results from the Business Recorder site and scrape the articles to a JSON file.
+This is a small spider for crawling Google search results from the Business Recorder site and scrape the articles to a JSON file.
 
 Google does not allow automated searches and the Business Recorder site's own search results are not as good (*even though they use Google's Programmable Search - probably some setting issue*). So this manual spider will take input search term and load the search results in the Chrome browser. The urls of the search results can then be collected and scraped.
 
