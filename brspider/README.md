@@ -14,6 +14,8 @@ It uses Selenium and Scrapy for crawling and scraping. Tkinter for the interface
 
 ## Instructions
 
+This uses Selenium on Chrome and requires the chrome driver (https://chromedriver.chromium.org/downloads). The path to the chrome driver on the local disk must be added in the script at the specified location.
+
 1. Enter the search term along with date limits 'Before' and 'After' in the format YYYY-MM-DD. Date limits are optional.
 2. Once results show, press 'Get URLs' to load the urls for scraping.
 3. 'Save URLs' will save urls to a binary file. 'Update URLs' will load previously saved urls. Although the program will handle duplicates when saving and updating, don't worry too much about duplicate urls, Scrapy will automatically ignore scraping duplicate links.

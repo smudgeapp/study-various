@@ -22,6 +22,7 @@ class LoadWrapper:
     chrome_options = Options()
     chrome_options.add_argument("--log-level=5")
     LOGGER.setLevel(logging.WARNING)
+    ##---ADD CHROME DRIVER PATH BELOW---##
     driverpath = '[add crhomedriver path]'
     driver = webdriver.Chrome(executable_path=str(driverpath),\
                               options=chrome_options)
