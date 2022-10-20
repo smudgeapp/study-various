@@ -26,6 +26,8 @@ It uses Selenium and Scrapy for crawling and scraping. Tkinter for the interface
 
 Ideally, the user should collect all the required links and then run the 'Get Articles'. If all the links cannot be loaded in a single sitting, save them and, in the next sitting, update to load saved urls and continue.
 
+It would also be helpful to look into Google search operators and how to improve search results, if already not an expert! :) ;)
+
 ## Minimal Error Handling
 
 At this time there is minimal error handling in this small program, so if it stops responding at some point without giving any notice, please see the log output. Or just save urls at frequent intervals to not lose search data and restart the program if it stops responding.
