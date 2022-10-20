@@ -22,7 +22,7 @@ class LoadWrapper:
     chrome_options = Options()
     chrome_options.add_argument("--log-level=5")
     LOGGER.setLevel(logging.WARNING)
-    driverpath = '[path to chrome driver]'
+    driverpath = '[add crhomedriver path]'
     driver = webdriver.Chrome(executable_path=str(driverpath),\
                               options=chrome_options)
     url_list = []
@@ -120,7 +120,7 @@ class LoadWrapper:
     def runSpider(self):
         runner = CrawlerRunner(settings={
             "FEEDS": {        
-                "brcorpus.json": {"format": "json",
+                "br_corpus.json": {"format": "json",
                         "fields": ["count", "date", "url", "article"],
                         "item_export_kwargs": {
                                "export_empty_fields": False,
@@ -133,10 +133,10 @@ class LoadWrapper:
             })
         runner.crawl(brSpider, self.url_list)
        
-        
 
     def reset(self):
         self.url_list.clear()
+        self.stat_lab.config(text="URLs Reset.")
         print("\nList cleared ", len(self.url_list))
 
     def closeWrapper(self):
@@ -147,7 +147,6 @@ class brSpider(scrapy.Spider):
     start_urls = []
     articleCt = 0
     
-    
 
     def __init__(self, urls=None):
         logging.getLogger('scrapy').setLevel(logging.WARNING)
@@ -155,8 +154,7 @@ class brSpider(scrapy.Spider):
         setup()
         if urls:
             self.start_urls = urls
-        else:
-            raise Exception("No urls provided.")
+            
         print("end init")
 
     @classmethod
@@ -165,8 +163,10 @@ class brSpider(scrapy.Spider):
         crawler.signals.connect(spider.spiderFinished, signal=signals.spider_closed)
         return spider
 
-    def spiderFinished(self, spider):
+
+    def spiderFinished(self):
         print("\nspider finished")
+        
     
 
     def start_requests(self):
@@ -215,15 +215,16 @@ top = Tk()
 top.title('BR Scraper')
 top.protocol('WM_DELETE_WINDOW', closeProgram)
 
-top.geometry("400x700")
+top.geometry("400x600")
 top.grid_columnconfigure(1, weight=1)
 top.grid_columnconfigure(2, weight=1)
-#top.grid_rowconfigure(0, weight=1)
 
 srch_term = StringVar()
 before = StringVar()
 after = StringVar()
 links = StringVar()
+
+
 
 term = Entry(top, textvariable=srch_term)
 term.grid(row=0, column=2, columnspan=2, sticky='WE', pady=10)
