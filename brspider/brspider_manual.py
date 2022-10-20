@@ -22,8 +22,7 @@ class LoadWrapper:
     chrome_options = Options()
     chrome_options.add_argument("--log-level=5")
     LOGGER.setLevel(logging.WARNING)
-    driverpath = 'E:/Software/chromedriver_win32/chromedriver'
-    driverpath1 = 'C:/Users/HP/Downloads/w2v-wip/chromedriver105/chromedriver'
+    driverpath = '[path to chrome driver]'
     driver = webdriver.Chrome(executable_path=str(driverpath),\
                               options=chrome_options)
     url_list = []
@@ -146,7 +145,7 @@ class LoadWrapper:
 class brSpider(scrapy.Spider):
     name = "brspider"
     start_urls = []
-    articleCt = 300
+    articleCt = 0
     
     
 
@@ -216,7 +215,7 @@ top = Tk()
 top.title('BR Scraper')
 top.protocol('WM_DELETE_WINDOW', closeProgram)
 
-top.geometry("400x600")
+top.geometry("400x700")
 top.grid_columnconfigure(1, weight=1)
 top.grid_columnconfigure(2, weight=1)
 #top.grid_rowconfigure(0, weight=1)
@@ -276,13 +275,3 @@ stat_lab.grid(row=9, column=1, columnspan=2, sticky='WE', pady=10)
 
 loader.setStatVar(stat_lab)
 
-#"PSO" | "Pakistan State Oil" site:brecorder.com/news before:2019-12-31 after:2018-12-31
-##term1 = "\"PSO\" | \"Pakistan State Oil\""
-##term2 = "\"Oil and Gas Development Company\" | \"Oil & Gas Development Company\""
-##term3 = "\"PPL\" | \"Pakistan Petroleum Limited\""
-##term4 = "\"ATRL\" | \"Attock Refinery\""
-##term5 = "\"NRL\" | \"National Refinery Limited\""
-##term6 = "\"HUBC\" | \"The Hub Power Company\""
-##term7 = "\"KAPCO\" | \"Kot Addu Power Company\""
-
-#"OGDCL"|"Oil and Gas Development Company"|"Oil & Gas Development Company"
