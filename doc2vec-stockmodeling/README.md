@@ -24,7 +24,7 @@ In this case, then, the model would not be limited to a particular type of news 
 
 Such a model would also make for a wider implementation, since the news items can vary by events, writer's style, editorial preferences, and a host of other factors. But the factors that affect a stock price can reasonably be expected to remain consistent across such variations.
 
-For instance, in this particular implementation, oil and gas sector companies were selected. Then factors affecting PSO (Pakistan State Oil) could be oil prices, oil supply, refinery production, foreign exchange rates, dues of the company, dues against the company, taxes, petroleum poicy and so on. These factors could be captured through words like oil, gas, receivables, dollar, federal, petroleum, policy and so on. While these words could be written by different writers in different sub-contexts, combinations, spellings and abbreviations, where a news item can be identified to pertain to a particular company, the key words can be expected to remain consistent.
+For instance, in this particular implementation, oil and gas sector companies were selected. Then factors affecting PSO (Pakistan State Oil) could be oil prices, oil supply, refinery production, foreign exchange rates, dues of the company, dues against the company, taxes, petroleum policy and so on. These factors could be captured through words like oil, gas, receivables, dollar, federal, petroleum, policy and so on. While these words could be written by different writers in different sub-contexts, combinations, spellings and abbreviations, where a news item can be identified to pertain to a particular company, the key words can be expected to remain consistent.
 
 ## Hypothesis for Generalizing
 
@@ -41,4 +41,4 @@ This is divided into 6 basic steps. Items under each step can vary depending upo
 5. Predict the representative vector from inferred vector.
 6. Predict the stock indicator from representative vector.
 
-For full details of the implementation refer to IMPLEMENTATION doc.
+For full details of the implementation refer to [IMPLEMENTATION](./doc2vec-stockmodeling/IMPLEMENTATION.md) doc.
