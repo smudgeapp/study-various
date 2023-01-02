@@ -6,5 +6,5 @@ For more information (questions, issues, comments, verification, confirmation, c
 
 Twitter: @smudgeapp
 
-Google Play Store Developer page: https://play.google.com/store/apps/dev?id=8282309560528481116&hl=en&gl=US
+[Google Play Store Developer page.](https://play.google.com/store/apps/dev?id=8282309560528481116&hl=en&gl=US)
 
