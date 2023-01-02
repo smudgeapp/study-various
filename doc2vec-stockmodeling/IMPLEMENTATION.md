@@ -62,7 +62,7 @@ This will form the link between the inferred vector of the *new* news item and t
 
 The result is a set of representative vectors tagged to the paragraph vectors which are tagged to stock indicator. This would complete Steps 3 & 4. The representative vectors should now be tagged to the stock indicator.
 
-*Note: When tagging the representative vectors against paragraph vector tags i.e. stock indicator, the stricter standard noted under Step 2 Point 5 is raised. If the vectors are not bifurcated into positive and negative, the accuracy would only have to measure, if the similarity output paragraph vector refers to a news item of the target company or not. Where vectors have been bifurcated into positive and negative though, the accuracy would also have to measure if a positive vector showed a positive gain in the stock indicator for a positive vector and vice versa.*
+*Note: When tagging the representative vectors against paragraph vector tags i.e. stock indicator, the stricter standard noted under Step 2 Point 5 is raised. If the vectors are not bifurcated into positive and negative, the accuracy would only have to measure, if the similarity output paragraph vector refers to a news item of the target company or not. Where vectors have been bifurcated into positive and negative though, the accuracy would also have to measure if a positive vector showed a positive gain in the stock indicator and vice versa.*
 
 2. Once this output is received, it can be put into a log-reg model (paragraph vectors as input and representative vectors+tags from the similarity set as output) or just used as is.
 
@@ -78,7 +78,7 @@ At prediction stage, the inferred paragraph vector of the *new* news item will b
 
 ## Some Final Considerations
 
-#### Robustness
+### Robustness
 
 1. An apparent question is that since representative vector tags are derived from the original paragraph vectors, how do the representative vectors add to the model robustness, since they are just another similar vector. And the information carried in them is already held in the original paragraph vectors - it is actually derived from them. The inferred vector, then, could simply be passed to the doc2vec model similarity measure and the result would be a paragraph vector and its associated tag, the representative vector layer is just superficial.
 
