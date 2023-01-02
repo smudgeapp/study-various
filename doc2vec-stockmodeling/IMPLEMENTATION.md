@@ -1,4 +1,6 @@
-# IMPLEMENTATION
+# IMPLEMENTATION 
+
+##### (TLSDR = too long, still do read) ;)
 
 ## STEP 1: Obtain trained vectors, for paragraphs and words, of a doc2vec model
 
