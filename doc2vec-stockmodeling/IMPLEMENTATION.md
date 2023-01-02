@@ -42,7 +42,7 @@ In order to achieve this,
  
  *While the above problem is very real, its incidence does not seem to be significant. When comparing the obtained vector with the corpus, it is found that cash was appearing in the context of the target word and referring to liquidity issues. For instance, cash reserves, cash flow, cash dividends, etc. As a result, a more pertinent problem is that of 'cash' being a mid-tier noun rather than it being out of context.*
  
- *To address the above problem, similarity would be required between the three words, the target, the noun (=factor) and the pos describing the noun. This can be achieved using SVD by passing in the vectors of the 3 words. [For the math behind this solution refer to this post](https://stats.stackexchange.com/questions/239059/similarity-metrics-for-more-than-two-vectors) *
+ *To address the above problem, similarity would be required between the three words, the target, the noun (=factor) and the pos describing the noun. This can be achieved using SVD by passing in the vectors of the 3 words. [For the math behind this solution refer to this post](https://stats.stackexchange.com/questions/239059/similarity-metrics-for-more-than-two-vectors)*
 
 *Another solution could be to run training for a limited corpus. That is where the target is PSO, the training corpus should include news articles only pertaining to PSO. Then it is less likely (not entirely) that the 'how' pos are out of context.*
 
