@@ -41,4 +41,4 @@ This is divided into 6 basic steps. Items under each step can vary depending upo
 5. Predict the representative vector from inferred vector.
 6. Predict the stock indicator from representative vector.
 
-For full details of the implementation refer to [IMPLEMENTATION](./study-various/doc2vec-stockmodeling/IMPLEMENTATION.md) doc.
+For full details of the implementation refer to [IMPLEMENTATION](./IMPLEMENTATION.md) doc.
