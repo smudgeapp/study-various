@@ -1,0 +1,85 @@
+Serial #: 0 
+1st Sim: 
+ Tags: 355, PPL, 2022-09-03 00:00:00, -0.003957515 
+, Item: <<this was stated in the staff level report on the combined seventh and eighth reviews under the eff for pakistan>> 
+
+Serial #: 1 
+1st Sim: 
+ Tags: 51, PSO, 2021-05-25 00:00:00, 0.01112101 
+, Item: <<islamabad ministry of energy has directed oil and ogra to cancel provisional licence of omcs for failing to meet the>> 
+
+Serial #: 2 
+1st Sim: 
+ Tags: 51, PSO, 2021-05-25 00:00:00, 0.01112101 
+, Item: <<islamabad ministry of energy has directed oil and ogra to cancel provisional licence of omcs for failing to meet the>> 
+
+Serial #: 3 
+1st Sim: 
+ Tags: 284, HUBC, 2022-08-27 00:00:00, -0.001474975 
+, Item: <<the power company ceo kamrankamal has responded to ceo cppag in his letter dated august expressing disappointment at cppag response>> 
+
+Serial #: 4 
+1st Sim: 
+ Tags: 441, KAPCO, 2022-05-17 00:00:00, 0.001291852 
+, Item: <<presided over by senator saifullahabro the committee held that the board is responsible for financial loss of rs billion to>> 
+
+Serial #: 5 
+1st Sim: 
+ Tags: 379, PPL, 2022-05-29 00:00:00, 0.002082653 
+, Item: <<in letter to financeminister ceo ke has stated that since his last communication of may mainly due to nonrelease of>> 
+
+Serial #: 6 
+1st Sim: 
+ Tags: 379, PPL, 2022-05-29 00:00:00, 0.002082653 
+, Item: <<in letter to financeminister ceo ke has stated that since his last communication of may mainly due to nonrelease of>> 
+
+Serial #: 7 
+1st Sim: 
+ Tags: 24, PSO, 2019-07-22 00:00:00, -0.00520317 
+, Item: <<san francisco microsoft on monday announced billion investment in an openai ethical artificial intelligence project backed by tesla elonmusk and>> 
+
+Serial #: 8 
+1st Sim: 
+ Tags: 269, HUBC, 2021-02-14 00:00:00, -0.005456247 
+, Item: <<islamabad the stateowned oil company pso has sought help from the ministry of petroleum for early settlement of rs billion>> 
+
+Serial #: 9 
+1st Sim: 
+ Tags: 355, PPL, 2022-09-03 00:00:00, -0.003957515 
+, Item: <<this was stated in the staff level report on the combined seventh and eighth reviews under the eff for pakistan>> 
+
+Serial #: 10 
+1st Sim: 
+ Tags: 424, NRL, 2022-01-12 00:00:00, -0.018194966 
+, Item: <<formerly known as it is an integrated oil and gas exploration and production company and around percent exploration success rate>> 
+
+Serial #: 11 
+1st Sim: 
+ Tags: 284, HUBC, 2022-08-27 00:00:00, -0.001474975 
+, Item: <<the power company ceo kamrankamal has responded to ceo cppag in his letter dated august expressing disappointment at cppag response>> 
+
+Serial #: 12 
+1st Sim: 
+ Tags: 163, OGDC, 2021-10-04 00:00:00, -0.004056751 
+, Item: <<the largest player in the country oil and psx ogdcl has also seen its production volumes decline over the last>> 
+
+Serial #: 13 
+1st Sim: 
+ Tags: 163, OGDC, 2021-10-04 00:00:00, -0.004056751 
+, Item: <<the largest player in the country oil and psx ogdcl has also seen its production volumes decline over the last>> 
+
+Serial #: 14 
+1st Sim: 
+ Tags: 206, OGDC, 2022-05-21 00:00:00, 0.004238235 
+, Item: <<ogdcl and jointly announced and launched csr emergency response package for the people of pirkoh area which is the operational>> 
+
+Serial #: 15 
+1st Sim: 
+ Tags: 100, PSO, 2022-05-28 00:00:00, -0.002421079 
+, Item: <<minister of state for on budgeting allocation for targeted subsidy in the upcoming federal budget which will be announced on>> 
+
+Serial #: 16 
+1st Sim: 
+ Tags: 312, PPL, 2020-07-14 00:00:00, 0.003382358 
+, Item: <<as per the information received from mol the operator of tal block hydrocarbons have been encountered in exploratory well mamikhelsouth>> 
+

@@ -1,0 +1,68 @@
+Positive Vec: #: 0, vec: pso increase better outstanding well save improved legal reached best effective shared committed huge clear positive agreed respectively granted
+
+Negative Vec: #: 0, vec: pso increase falling lower charged failed negative affected limited low
+
+Positive Vec: #: 1, vec: pso generation awarded legal good save recommended agreed increased successfully huge respectively supported clear best
+
+Negative Vec: #: 1, vec: pso generation falling limited charged failed lower severe
+
+Positive Vec: #: 2, vec: pso crude legal improved approved increased effective shared respectively granted significant recommended allow positive committed
+
+Negative Vec: #: 2, vec: pso crude falling charged lower gross low failed
+
+Positive Vec: #: 3, vec: pso price outstanding reached better legal awarded recommended save good approved well successfully granted allow clear agreed supported best natural significant ensure positive respectively
+
+Negative Vec: #: 3, vec: pso price limited failed charged severe affected
+
+Positive Vec: #: 4, vec: pso spot best better increased legal save huge approved improved reached well respectively supported ensure recommended awarded granted successfully committed clear shared positive
+
+Negative Vec: #: 4, vec: pso spot lower charged falling failed limited negative
+
+Positive Vec: #: 5, vec: pso ppl legal best improved increased huge reached allow shared supported clear
+
+Negative Vec: #: 5, vec: pso ppl limited gross negative failed severe low
+
+Positive Vec: #: 6, vec: pso towards outstanding reached improved recommended increased respectively significant shared natural granted allow supported clear
+
+Negative Vec: #: 6, vec: pso towards gross limited affected failed negative lower
+
+Positive Vec: #: 7, vec: pso tons increased better well reached granted improved engaged legal effective good allow best awarded respectively shared improve successfully approved clear recommended significant committed
+
+Negative Vec: #: 7, vec: pso tons limited affected charged negative failed
+
+Positive Vec: #: 8, vec: pso chairman outstanding save huge granted engaged reached natural well improved best good increased effective approved recommended ensure improve awarded shared agreed
+
+Negative Vec: #: 8, vec: pso chairman falling failed severe
+
+Positive Vec: #: 9, vec: pso versus outstanding legal huge increased best good approved reached successfully respectively clear agreed supported recommended natural improve
+
+Negative Vec: #: 9, vec: pso versus limited gross charged lower affected low severe failed
+
+Positive Vec: #: 10, vec: pso shortage legal outstanding increased better engaged save well awarded improved effective respectively recommended good improve natural best granted shared
+
+Negative Vec: #: 10, vec: pso shortage falling limited affected negative charged failed
+
+Positive Vec: #: 11, vec: pso cash reached awarded approved huge better engaged effective best well legal positive good ensure clear committed
+
+Negative Vec: #: 11, vec: pso cash falling gross limited negative failed low severe
+
+Positive Vec: #: 12, vec: pso company outstanding save better engaged improved recommended effective committed agreed ensure allow successfully best improve clear shared
+
+Negative Vec: #: 12, vec: pso company falling charged negative affected severe
+
+Positive Vec: #: 13, vec: pso tariff legal outstanding approved improved engaged better save best increased huge improve successfully natural good shared agreed awarded ensure granted committed
+
+Negative Vec: #: 13, vec: pso tariff charged limited negative severe
+
+Positive Vec: #: 14, vec: pso law improved legal approved supported effective agreed well committed ensure successfully clear granted natural
+
+Negative Vec: #: 14, vec: pso law negative severe gross failed charged limited lower
+
+Positive Vec: #: 15, vec: pso week outstanding save better well ensure huge awarded best significant allow approved effective committed successfully good recommended positive shared
+
+Negative Vec: #: 15, vec: pso week falling failed negative charged limited affected lower severe
+
+Positive Vec: #: 16, vec: pso consortium reached better outstanding awarded improved huge legal approved save successfully increased effective allow best supported well good agreed
+
+Negative Vec: #: 16, vec: pso consortium falling limited negative gross charged affected failed lower severe low
+

@@ -1,0 +1,68 @@
+Positive Sent: #: 0, Sent: pso increase well better best agreed save committed effective shared reached respectively improved clear legal outstanding granted huge positive
+
+Negative Sent: #: 0, Sent: pso increase lower falling charged failed negative low affected limited
+
+Positive Sent: #: 1, Sent: pso generation supported awarded recommended legal respectively huge good increased save agreed successfully clear best
+
+Negative Sent: #: 1, Sent: pso generation charged severe falling limited failed lower
+
+Positive Sent: #: 2, Sent: pso crude legal recommended respectively significant shared improved approved granted allow effective increased positive committed
+
+Negative Sent: #: 2, Sent: pso crude gross lower charged falling low failed
+
+Positive Sent: #: 3, Sent: pso price reached agreed outstanding awarded legal supported significant respectively better clear granted approved positive allow well ensure save best natural good recommended successfully
+
+Negative Sent: #: 3, Sent: pso price failed limited charged affected severe
+
+Positive Sent: #: 4, Sent: pso spot best increased huge legal save recommended approved better ensure successfully well committed reached positive clear respectively supported granted shared improved awarded
+
+Negative Sent: #: 4, Sent: pso spot lower failed charged limited falling negative
+
+Positive Sent: #: 5, Sent: pso ppl best legal allow increased huge supported improved clear reached shared
+
+Negative Sent: #: 5, Sent: pso ppl limited low failed negative severe gross
+
+Positive Sent: #: 6, Sent: pso towards reached outstanding allow shared increased supported improved granted respectively significant natural clear recommended
+
+Negative Sent: #: 6, Sent: pso towards failed affected limited gross lower negative
+
+Positive Sent: #: 7, Sent: pso tons increased granted well successfully reached better recommended significant improved shared best effective awarded engaged improve good legal respectively committed allow clear approved
+
+Negative Sent: #: 7, Sent: pso tons affected charged limited failed negative
+
+Positive Sent: #: 8, Sent: pso chairman granted natural huge save reached ensure best outstanding well agreed recommended effective approved improve shared good engaged increased awarded improved
+
+Negative Sent: #: 8, Sent: pso chairman severe failed falling
+
+Positive Sent: #: 9, Sent: pso versus respectively legal outstanding best recommended clear natural improve huge increased approved good agreed supported reached successfully
+
+Negative Sent: #: 9, Sent: pso versus limited low lower charged severe gross affected failed
+
+Positive Sent: #: 10, Sent: pso shortage respectively legal improve increased awarded good well engaged recommended effective save shared natural granted best better outstanding improved
+
+Negative Sent: #: 10, Sent: pso shortage falling limited affected negative failed charged
+
+Positive Sent: #: 11, Sent: pso cash awarded reached approved huge best positive effective well clear good engaged committed better ensure legal
+
+Negative Sent: #: 11, Sent: pso cash falling gross low severe negative failed limited
+
+Positive Sent: #: 12, Sent: pso company agreed save committed ensure improve outstanding effective allow engaged improved successfully clear better shared best recommended
+
+Negative Sent: #: 12, Sent: pso company falling charged negative severe affected
+
+Positive Sent: #: 13, Sent: pso tariff legal approved improve successfully natural best outstanding improved shared ensure good engaged huge agreed save committed increased granted awarded better
+
+Negative Sent: #: 13, Sent: pso tariff charged limited negative severe
+
+Positive Sent: #: 14, Sent: pso law legal improved supported ensure committed approved natural successfully effective clear agreed granted well
+
+Negative Sent: #: 14, Sent: pso law severe negative failed gross charged limited lower
+
+Positive Sent: #: 15, Sent: pso week well save ensure significant recommended good outstanding best better awarded huge committed successfully positive approved shared allow effective
+
+Negative Sent: #: 15, Sent: pso week failed negative falling charged severe limited lower affected
+
+Positive Sent: #: 16, Sent: pso consortium reached successfully awarded better huge approved good agreed best improved outstanding legal effective increased save allow well supported
+
+Negative Sent: #: 16, Sent: pso consortium negative gross severe limited falling lower failed low charged affected
+
