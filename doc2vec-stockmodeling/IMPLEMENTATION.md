@@ -1,6 +1,6 @@
-#IMPLEMENTATION
+# IMPLEMENTATION
 
-### STEP 1: Obtain trained vectors, for paragraphs and words, of a doc2vec model
+## STEP 1: Obtain trained vectors, for paragraphs and words, of a doc2vec model
 
 Gensim provides a quite easy-to-use implementation of doc2vec in python. This has been used in this implementation.
 
@@ -54,7 +54,7 @@ In order to achieve this,
 
 6. Finally, once the full formed factor representation is obtained, it can be passed to the doc2vec model to infer its *numeric* paragraph vector. 
 
-### STEP 3 & 4: Tagging Representative Vectors to Paragraph Vectors to Stock Indicator
+## STEP 3 & 4: Tagging Representative Vectors to Paragraph Vectors to Stock Indicator
 
 This will form the link between the inferred vector of the *new* news item and the representative vector. Now, the doc2vec model contains the weights for the paragraph vectors from the news corpus, not the representative vectors. So there must be first a link between the representative vectors and the paragraph vectors. But the paragraph vectors are not tagged to the representative vectors. 
 
@@ -68,7 +68,7 @@ The result is a set of representative vectors tagged to the paragraph vectors wh
 
 *Note: If this implementation step seems make-shift or forced, consider the following. The purpose is to identify a set of factors', reflected in a news item, affect on the stock indicator. The representative vector itself, does not carry that information. That information has to be obtained from the actual news item tags. Then if it can be identified which news item (i.e. its paragraph vector) reflects which representative vector, through the similarity measure, the factors most closely represented in the news item are identified. Once it is determined which news item reflects what factors, then the impact, on the stock indicator, of such news is the impact of the factors on the stock indicator.*
 
-### STEP 5 & 6: Predict Stock Indicator from Representative Vector Predicted by Inferred Vector
+## STEP 5 & 6: Predict Stock Indicator from Representative Vector Predicted by Inferred Vector
 
 At prediction stage, the inferred paragraph vector of the *new* news item will be passed to the output of Step 3 & 4. 
 
@@ -76,7 +76,7 @@ At prediction stage, the inferred paragraph vector of the *new* news item will b
 
 2. If a log-reg model is created, the inferred vector may be passed as input to obtain the representative vector and associated tag prediction.
 
-### Some Final Considerations
+## Some Final Considerations
 
 #### Robustness
 
@@ -92,7 +92,7 @@ There is then a direct link between the prediction and the representative vector
 
 However, Steps 3 & 4 would still be required, to ascertain the impact of the representative words on the stock indicator. Note that the representative vectors themselves do not carry any information other than the one assigned to them.
 
-#### Model Parameters & Complexity
+### Model Parameters & Complexity
 
 1. Following the process of developing representative vectors (Step 2) it can be seen that with large corpus, such a process could mean hundreds of such vectors. With a large number of such vectors, it may become difficult to shortlist to a manageable size. With a large number of vectors, it may also get difficult to assign each representative vector to a single paragraph vector and its associated stock indicator consequence. With the option to run training for news corpus of each company, the size problem quickly escalates to impractical (well infeasible, at least) levels.
 
