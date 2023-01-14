@@ -42,3 +42,21 @@ This is divided into 6 basic steps. Items under each step can vary depending upo
 6. Predict the stock indicator from representative vector.
 
 For full details of the implementation refer to [IMPLEMENTATION](./IMPLEMENTATION.md) doc.
+
+## [Test Results](./TESTRESULTS_JAN23.md)
+
+Overall results remain inconclusive. Major impediment is getting past Step 3 & 4 as described in the [IMPLEMENTATION](./IMPLEMENTATION.md) doc. The result of similarity of representative vector to the paragraph vector shows little variation in the numerous iterations of the doc2vec model with an increasing number of epochs and varying window sizes. 
+
+Epoch increments did not show improvement in the variation of the representative vector similarities, even at inference stage.
+
+As a result, the current testing is stuck at Steps 3 & 4 and further implementation is not included in the code, as of yet.
+
+What is, perhaps, most anomalous, is that the combined (=com) model inferences are returning more close to the desired output than the dbow and dm concatenated inferences. If there was just variation in com inference results, it could have been appropriated to random chance. But the results are also returning the target in more cases, which indicates, there is some sort of link. This has been observed in various training runs of the d2v models, with varying epochs, window sizes, etc. Furthermore, when simple dbow model is used, which is the type of the denoted com model, the results are similarly inconclusive to dbow and dm inference iterations. [See the last test under Discussion section.](./TESTRESULTS_JAN23.md)
+
+However, the math behind the com inferences do not resolve with the definition of the doc2vec neural network. For model robustness, the neural network math must resolve, shouldn't it?
+
+This requires further exploration. The results are left at this point, till further tests. 
+
+## Instructions
+
+Its plain Python code, just run it through terminal or IDLE. Get dependencies as applicable. Other references are included in the code.

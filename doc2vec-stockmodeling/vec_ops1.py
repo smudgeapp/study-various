@@ -10,7 +10,7 @@ from numpy.linalg import norm
 import datetime
 import time
 
-## CREATES VECTORS AS TARGET-WHAT-'ALL HOW WORDS'
+#CREATES VECTORS AS SEQUENCE TARGET-WHAT-HOW-TARGET-WHAT-HOW AND SO ON.
 
 class VectorOperations:
 
@@ -75,14 +75,17 @@ class VectorOperations:
                 pass
         for i, item in enumerate(target_sim):
             vec = []
-            vec.append(target)
+            #vec.append(target)
+            tag_word = ''
             if tag_filters:
                 if self.stringops.tagFilter(tag_filters[0], item[0], short_filter):
-                    vec.append(item[0])
+                    #vec.append(item[0])
+                    tag_word = item[0]
                 else:
                     continue
             else:
-                vec.append(item[0])
+                #vec.append(item[0])
+                tag_word = item[0]
             class_sims = model.wv.most_similar(item[0], topn=model.corpus_count)
             tag_filter2 = None
             if tag_filters:
@@ -90,6 +93,8 @@ class VectorOperations:
             for j in class_sims:
                 if tag_filter2:
                     if self.stringops.tagFilter(tag_filter2, j[0], short_filter):
+                        vec.append(target)
+                        vec.append(tag_word)
                         vec.append(j[0])
                     else:
                         continue
@@ -100,6 +105,7 @@ class VectorOperations:
                 with open(write_to, 'a') as f:
                     f.write('#' + str(i) + '\n' + ' '.join(vec) + ' \n')
         return class_vecs
+
 
     def plain_vecs(self, model, target, tag_filters=[["N"],["V", "J", "R"]],
                     short_filter=True, topn=10, write_to=None, shape_r=300,
@@ -141,21 +147,24 @@ class VectorOperations:
                 pass
         polar_sents = []
         for i, text_m in enumerate(class_vecs):
+            base_vec = [text_m[0], text_m[1]]
             sent = {
-                'pos_vec': [text_m[0], text_m[1]],
-                'neg_vec': [text_m[0], text_m[1]]
+                'pos_vec': [],
+                'neg_vec': []
                 }
+            itr = 0
             for k, text in enumerate(text_m):
-                if k > 1:
+                if k == itr + 2:
+                    itr += 3
                     score = self.sia.polarity_scores(text)['compound']
                     if score > pol_score:
-                        sent['pos_vec'].append(text)
+                        sent['pos_vec'] = sent['pos_vec'] + base_vec + [text]
                     elif score < -pol_score:
-                        sent['neg_vec'].append(text)
+                        sent['neg_vec'] = sent['neg_vec'] + base_vec + [text]
                     else:
                         if include_neuts:
-                            sent['pos_vec'].append(text)
-                            sent['neg_vec'].append(text)
+                            sent['pos_vec'] = sent['pos_vec'] + base_vec + [text]
+                            sent['neg_vec'] = sent['neg_vec'] + base_vec + [text]
             polar_sents.append(sent)    
             if write_polar_sents:
                 with open(write_polar_sents, 'a') as f:
@@ -219,16 +228,19 @@ class VectorOperations:
         for i, vec in enumerate(polar_vecs):
             name = vec['pos_vec'][0]
             word = vec['pos_vec'][1]
+            base_vec = [name, word]
             item = {
-                'pos_vec': [name, word],
-                'neg_vec': [name, word]
+                'pos_vec': [],
+                'neg_vec': []
                 }
             pos_vec = self.svd_tricoed_sent(model, vec['pos_vec'],
                                            vec_len=vec_len)
             neg_vec = self.svd_tricoed_sent(model, vec['neg_vec'],
                                           vec_len=vec_len)
-            item['pos_vec'] = item['pos_vec'] + pos_vec
-            item['neg_vec'] = item['neg_vec'] + neg_vec
+            for word in pos_vec:                
+                item['pos_vec'] = item['pos_vec'] + base_vec + [word]
+            for word in neg_vec:
+                item['neg_vec'] = item['neg_vec'] + base_vec + [word]
             corr_vecs.append(item)
             if write_coed_sents:
                 with open(write_coed_sents, 'a') as f:
@@ -287,8 +299,8 @@ class VectorOperations:
     def run_sent_test(self, d2vholder, d2vmodels, sents_vecs, corpus, polar_sents=True,
                       use_holder=False, topn=10, epochs=1000, write_to=None):
         if polar_sents:
-           self.run_polar_sent_test(d2vholder, d2vmodels, sents_vecs, corpus, use_holder=use_holder,
-                                    topn=topn, epochs=epochs, write_to=write_to)
+            self.run_polar_sent_test(d2vholder, d2vmodels, sents_vecs, corpus, use_holder=use_holder,
+                                     topn=topn, epochs=epochs, write_to=write_to)
         else:
             self.run_plain_sent_test(d2vholder, d2vmodels, sents_vecs, corpus, use_holder=use_holder,
                                      topn=topn, epochs=epochs, write_to=write_to)
@@ -298,12 +310,11 @@ class VectorOperations:
                      write_to=None):
         if polar_sents:
             self.run_polar_vec_test(d2vmodel, sents_vecs, corpus, topn=topn,
-                                    write_to=write_to)
+                                        write_to=write_to)
         else:
             self.run_plain_vec_test(d2vmodel, sents_vecs, corpus, topn=topn,
-                                    write_to=write_to)
+                                     write_to=write_to)
     
-
 
     def run_polar_sent_test(self, d2vholder, d2vmodels, sents, corpus, use_holder=False,
                             topn=10, epochs=1000, write_to=None):
@@ -320,7 +331,7 @@ class VectorOperations:
             else:
                 pos_vec = np.concatenate([model.infer_vector(sent['pos_vec'], epochs=epochs) for model in d2vmodels])
                 neg_vec = np.concatenate([model.infer_vector(sent['neg_vec'], epochs=epochs) for model in d2vmodels])
-             
+            
             sim_pos = d2vholder.dv.most_similar(pos_vec, topn=topn)
             sim_neg = d2vholder.dv.most_similar(neg_vec, topn=topn)
             if write_to:
@@ -393,14 +404,16 @@ class VectorOperations:
                             (', '.join(str_tags),
                             ' '.join(corpus[sim[0][0]].words[:20])))
 
-    def svd_tricoed_sent(self, model, word_vec, vec_len=10, start_len=1):
+    def svd_tricoed_sent(self, model, word_vec, vec_len=10, increment=2):
         ##define coed range
         word_coed = {}
+        add_len = 0
         for i, word in enumerate(word_vec):
-            if i > start_len:
+            if i == add_len + increment:
                 vec = [model.wv[word_vec[0]], model.wv[word_vec[1]],
                        model.wv[word]]            
                 word_coed[word] = self.tricoed(vec)
+                add_len = i + 1
         sortd_list = sorted(word_coed.items(), key=lambda x: x[1], reverse=True)
         return [i[0] for i in sortd_list[:vec_len]]
 

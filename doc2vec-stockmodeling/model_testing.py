@@ -2,7 +2,7 @@ import gensim
 import os
 import string
 from preprocess import Preprocess
-from vec_ops import VectorOperations
+import vec_ops1, vec_ops
 from gensim.models import Word2Vec
 from gensim.models.doc2vec import Doc2Vec
 from gensim.test.test_doc2vec import ConcatenatedDoc2Vec
@@ -27,21 +27,22 @@ def d2vTagData(data):
         itr += 1
         yield gensim.models.doc2vec.TaggedDocument(tokens, tag)
 
-dirpath = "E:/Projects/word2vec/w2vgit/rssj"
-dirpath2 = "C:/Users/HP/Downloads/w2v-wip/rssj"
+dirpath = "[local disk directory path to files]"
+
 
 ##price data must be stored in columns, with the tickers matching the names
 ## in the corpus
 ##
-price_data = os.path.join("price_data_sort1.csv")
+price_data = os.path.join("[path to price data in csv format]")
 price_cols = ['Date', 'ATRL_Avg', 'OGDC_Avg', 'NRL_Avg', 'HUBC_Avg',
                   'KAPCO_Avg', 'PSO_Avg', 'PPL_Avg']
 
 
 stringops = Preprocess(pricedata=price_data, datacols=price_cols)
-vec_ops = VectorOperations()
+vecOps = vec_ops.VectorOperations()
+vecOpsSeq = vec_ops1.VectorOperations()
 
-jsonfile = os.path.join(dirpath2, "final_cor.json")
+jsonfile = os.path.join(dirpath, "final_cor.json")
 
 data = stringops.getJSONData(jsonfile, text_index=1, stock_data=True)
 
@@ -71,27 +72,38 @@ d2vdata = stringops.preprocessDocs(data, target_names=regex_dict,
                                    remove_nnp=True)
 d2vcorpus = list(d2vTagData(d2vdata))
 
+#models are not included in the repo
 
 d2v_dbow = Doc2Vec.load('d2vmodel.model')
 d2v_dm = Doc2Vec.load('d2vmodel_dm.model')
 d2v_com = Doc2Vec.load('d2v_test.model')
 
+
 #custom concatenation of dbow & dm
 #this concatenates the paragraph vectors and the word vectors
-vec_ops.concatenate_d2v(d2v_com, d2v_dbow, d2v_dm)
+vecOps.concatenate_d2v(d2v_com, d2v_dbow, d2v_dm)
+
 
 #defining text files for storing testing data and results
-plain_sents = 'plain_sents.txt'
-polar_sents = 'polar_sents.txt'
-coed_sents = 'coed_sents.txt'
+plain_sents_t1 = 'plain_sents_t1m1.txt'
+polar_sents_t1 = 'polar_sents_t1m2.txt'
+coed_sents_t1 = 'coed_sents_t1m3.txt'
 
-plain_res = 'plain_res.txt'
-polar_res = 'polar_res.txt'
-coed_res = 'coed_res.txt'
+plain_sents_t3 = 'plain_sents_t3m1.txt'
+polar_sents_t3 = 'polar_sents_t3m2.txt'
+coed_sents_t3 = 'coed_sents_t3m3.txt'
 
-plain_res_vecs = 'plain_res_vecs.txt'
-polar_res_vecs = 'polar_res_vecs.txt'
-coed_res_vecs = 'coed_res_vecs.txt'
+plain_res_t1 = 'plain_res_t1m1.txt'
+polar_res_t1 = 'polar_res_t1m2.txt'
+coed_res_t1 = 'coed_res_t1m3.txt'
+
+plain_res_vecs = 'plain_res_t2m1.txt'
+polar_res_vecs = 'polar_res_t2m2.txt'
+coed_res_vecs = 'coed_res_t2m3.txt'
+
+plain_res_t3 = 'plain_res_t3m1.txt'
+polar_res_t3 = 'polar_res_t3m2.txt'
+coed_res_t3 = 'coed_res_t3m3.txt'
 
 #define pos taggin filter - this is a positive filter
 #it will keep the listed ones and remove the rest
@@ -100,46 +112,112 @@ coed_res_vecs = 'coed_res_vecs.txt'
 #second will filter words from the sim words of the sim word of the target word.
 
 tagfilters = [['N'], ['V', 'J', 'R']]
-polscore = 0.05               
+polscore = 0.05
 
-sents = vec_ops.plain_sents(d2v_com, 'pso', tag_filters=tagfilters,
-                           write_to=plain_sents, topn=25)
+#T1
+
+print("Running T1")
+
+plain_sents = vecOps.plain_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                           write_to=plain_sents_t1, topn=25)
 
 
-
-polar_sents = vec_ops.polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
-                                 write_polar_sents=polar_sents, pol_score=polscore,
+polar_sents = vecOps.polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                                 write_polar_sents=polar_sents_t1, pol_score=polscore,
                                  topn=25)
 
-coed_sents = vec_ops.coed_polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
-                                       write_coed_sents=coed_sents,
+coed_sents = vecOps.coed_polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                                       write_coed_sents=coed_sents_t1,
                                        pol_score=polscore, vec_len=50, topn=25)
 
-vec_ops.run_test(d2v_com, sents, d2vcorpus, polar_sents=0, epochs=50000,
-                 write_to=plain_res)
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], plain_sents, d2vcorpus, polar_sents=0, epochs=80000,
+                 write_to=plain_res_t1)
 
-vec_ops.run_test(d2v_com, polar_sents, d2vcorpus, epochs=50000,
-                 write_to=polar_res)
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], polar_sents, d2vcorpus, epochs=80000,
+                 write_to=polar_res_t1)
 
-vec_ops.run_test(d2v_com, coed_sents, d2vcorpus, epochs=50000,
-                 write_to=coed_res)
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], coed_sents, d2vcorpus, epochs=80000,
+                 write_to=coed_res_t1)
 
-##vec_shape = 600
-##
-##sents_vecs = vec_ops.plain_vecs(d2v_com, 'pso', tag_filters=tagfilters,
-##                                topn=25, shape_r=vec_shape)
-##
-##polar_vecs = vec_ops.polar_vecs(d2v_com, 'pso', tag_filters=tagfilters,
-##                               topn=25, shape_r=vec_shape)
-##
-##coed_vecs = vec_ops.coed_polar_vecs(d2v_com, 'pso', tag_filters=tagfilters,
-##                                    topn=25, shape_r=vec_shape)
-##
-##vec_ops.run_test(d2v_com, sents_vecs, d2vcorpus, vecs=1, polar_sents=0,
-##                 epochs=50000, write_to=plain_res_vecs)
-##
-##vec_ops.run_test(d2v_com, polar_vecs, d2vcorpus, vecs=1, epochs=50000,
-##                 write_to=polar_res_vecs)
-##
-##vec_ops.run_test(d2v_com, coed_vecs, d2vcorpus, vecs=1, epochs=50000,
-##                 write_to=coed_res_vecs)
+
+#T2
+
+print("Running T2")
+
+vec_shape = 600
+
+sents_vecs = vecOps.plain_vecs(d2v_com, 'pso', tag_filters=tagfilters,
+                                topn=25, shape_r=vec_shape)
+
+polar_vecs = vecOps.polar_vecs(d2v_com, 'pso', tag_filters=tagfilters,
+                               topn=25, shape_r=vec_shape)
+
+coed_vecs = vecOps.coed_polar_vecs(d2v_com, 'pso', tag_filters=tagfilters,
+                                    topn=25, shape_r=vec_shape)
+
+vecOps.run_vec_test(d2v_com, sents_vecs, d2vcorpus, polar_sents=0,
+                    write_to=plain_res_vecs)
+
+vecOps.run_vec_test(d2v_com, polar_vecs, d2vcorpus, write_to=polar_res_vecs)
+
+vecOps.run_vec_test(d2v_com, coed_vecs, d2vcorpus, write_to=coed_res_vecs)
+
+#T3
+
+print("Running T3")
+
+plain_sents_seq = vecOpsSeq.plain_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                           write_to=plain_sents_t3, topn=25)
+
+
+polar_sents_seq = vecOpsSeq.polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                                 write_polar_sents=polar_sents_t3, pol_score=polscore,
+                                 topn=25)
+
+coed_sents_seq = vecOpsSeq.coed_polar_sents(d2v_com, 'pso', tag_filters=tagfilters,
+                                       write_coed_sents=coed_sents_t3,
+                                       pol_score=polscore, vec_len=50, topn=25)
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], plain_sents_seq, d2vcorpus, polar_sents=0, epochs=80000,
+                 write_to=plain_res_t3)
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], polar_sents_seq, d2vcorpus, epochs=80000,
+                 write_to=polar_res_t3)
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], coed_sents_seq, d2vcorpus, epochs=80000,
+                 write_to=coed_res_t3)
+
+
+plain_res_t1_h = 'plain_res_t1m1_h.txt'
+polar_res_t1_h = 'polar_res_t1m2_h.txt'
+coed_res_t1_h = 'coed_res_t1m3_h.txt'
+
+
+plain_res_t3_h = 'plain_res_t3m1_h.txt'
+polar_res_t3_h = 'polar_res_t3m2_h.txt'
+coed_res_t3_h = 'coed_res_t3m3_h.txt'
+
+
+print("Running T1-H")
+
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], plain_sents, d2vcorpus, use_holder=True,
+                     polar_sents=0, epochs=80000, write_to=plain_res_t1_h)
+
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], polar_sents, d2vcorpus, use_holder=True,
+                     epochs=80000, write_to=polar_res_t1_h)
+
+vecOps.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], coed_sents, d2vcorpus, use_holder=True,
+                     epochs=80000, write_to=coed_res_t1_h)
+
+print("Running T3-H")
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], plain_sents_seq, d2vcorpus,
+                        use_holder=True, polar_sents=0, epochs=80000, write_to=plain_res_t3_h)
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], polar_sents_seq, d2vcorpus, use_holder=True,
+                        epochs=80000, write_to=polar_res_t3_h)
+
+vecOpsSeq.run_sent_test(d2v_com, [d2v_dbow, d2v_dm], coed_sents_seq, d2vcorpus, use_holder=True,
+                        epochs=80000, write_to=coed_res_t3_h)
+
+print("DONE")

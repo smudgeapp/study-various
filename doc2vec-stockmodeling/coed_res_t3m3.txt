@@ -1,0 +1,187 @@
+Sentiment #: 0 
+Positive: [(158, 0.6643859148025513), (300, 0.6531034708023071), (9, 0.6356590986251831), (397, 0.6123281121253967), (38, 0.6017422080039978), (365, 0.6003809571266174), (232, 0.5975255370140076), (215, 0.5966757535934448), (375, 0.5926961898803711), (237, 0.5883357524871826)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6319757103919983), (300, 0.6267613172531128), (9, 0.5920936465263367), (397, 0.5797052383422852), (365, 0.577530562877655), (215, 0.5771124958992004), (38, 0.5626059770584106), (201, 0.5551067590713501), (204, 0.5476592779159546), (343, 0.5475748777389526)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 1 
+Positive: [(300, 0.6537068486213684), (158, 0.6450316309928894), (9, 0.6094717979431152), (397, 0.6028062701225281), (365, 0.5821231007575989), (237, 0.5819627642631531), (375, 0.5816454291343689), (38, 0.5761372447013855), (232, 0.5741649270057678), (215, 0.5741449594497681)] 
+1st Pos Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Negative: [(300, 0.5942489504814148), (158, 0.5910800099372864), (365, 0.5708155632019043), (215, 0.5667608976364136), (9, 0.5436974167823792), (237, 0.5398557186126709), (397, 0.5391663312911987), (232, 0.5378225445747375), (375, 0.5362998247146606), (38, 0.5212226510047913)] 
+1st Neg Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Sentiment #: 2 
+Positive: [(158, 0.666350245475769), (300, 0.6506377458572388), (9, 0.6341032981872559), (397, 0.6054695248603821), (365, 0.5981722474098206), (38, 0.5947208404541016), (215, 0.5942940711975098), (232, 0.591132640838623), (204, 0.5888336896896362), (85, 0.5853250622749329)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6740460395812988), (300, 0.6597596406936646), (9, 0.6415387392044067), (397, 0.6158885359764099), (365, 0.600986897945404), (215, 0.597564160823822), (204, 0.5921040177345276), (38, 0.59171062707901), (85, 0.5907573699951172), (343, 0.5892443060874939)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 3 
+Positive: [(158, 0.6447533369064331), (300, 0.628911018371582), (9, 0.6184265613555908), (365, 0.5965219140052795), (215, 0.5951104760169983), (397, 0.5915774703025818), (232, 0.5912571549415588), (38, 0.5681065917015076), (201, 0.5614805221557617), (237, 0.5596665143966675)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6069726347923279), (300, 0.5943784713745117), (365, 0.5703125596046448), (215, 0.5635411143302917), (397, 0.5547845363616943), (38, 0.5409985184669495), (9, 0.5404077768325806), (232, 0.5347693562507629), (237, 0.5339986681938171), (375, 0.5311691164970398)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 4 
+Positive: [(158, 0.6569278836250305), (300, 0.6524182558059692), (9, 0.6339682936668396), (365, 0.6058846116065979), (215, 0.6048119068145752), (232, 0.6042125225067139), (397, 0.601227879524231), (375, 0.5939458012580872), (38, 0.59364253282547), (237, 0.5883985757827759)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6695324778556824), (300, 0.6665071249008179), (9, 0.6370932459831238), (365, 0.6129271388053894), (397, 0.6113630533218384), (215, 0.6090627908706665), (375, 0.6012930274009705), (237, 0.6001229286193848), (38, 0.5983877182006836), (232, 0.5864656567573547)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 5 
+Positive: [(158, 0.6776027083396912), (300, 0.6710479259490967), (9, 0.6561493873596191), (397, 0.6331794857978821), (232, 0.6306085586547852), (38, 0.6169518828392029), (215, 0.6169343590736389), (365, 0.6160756349563599), (85, 0.6137583255767822), (204, 0.6119767427444458)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(300, 0.6297308206558228), (158, 0.627654492855072), (365, 0.6001954674720764), (215, 0.5970020294189453), (397, 0.5884018540382385), (9, 0.5845624208450317), (232, 0.5773484110832214), (38, 0.5624152421951294), (237, 0.5534066557884216), (375, 0.549701452255249)] 
+1st Neg Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Sentiment #: 6 
+Positive: [(300, 0.6480696201324463), (158, 0.6313043832778931), (9, 0.6067008972167969), (365, 0.6052349805831909), (232, 0.6011192202568054), (215, 0.5998234152793884), (38, 0.5872306227684021), (201, 0.5791168212890625), (397, 0.5787505507469177), (354, 0.5748074054718018)] 
+1st Pos Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Negative: [(158, 0.6212707161903381), (300, 0.6137664914131165), (365, 0.5749916434288025), (9, 0.5738921165466309), (215, 0.5706925988197327), (38, 0.5596097111701965), (397, 0.5553845167160034), (232, 0.5549455881118774), (237, 0.5546489357948303), (375, 0.5515874624252319)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 7 
+Positive: [(158, 0.6155052185058594), (300, 0.6134291291236877), (9, 0.5876753926277161), (397, 0.5746186971664429), (365, 0.5726482272148132), (215, 0.5706171989440918), (38, 0.5660058856010437), (232, 0.5636059641838074), (85, 0.5524062514305115), (201, 0.5521172881126404)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6662670969963074), (300, 0.6624268889427185), (9, 0.6177177429199219), (38, 0.5978338718414307), (397, 0.5978220105171204), (365, 0.5956788063049316), (215, 0.5909695029258728), (85, 0.5839096903800964), (232, 0.583869993686676), (204, 0.5837886929512024)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 8 
+Positive: [(158, 0.6763503551483154), (300, 0.6727281212806702), (9, 0.6406781077384949), (397, 0.6290162801742554), (365, 0.6185582876205444), (215, 0.6158537864685059), (232, 0.6104892492294312), (237, 0.6055026054382324), (375, 0.6046858429908752), (38, 0.6043564081192017)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.681661069393158), (300, 0.679648220539093), (9, 0.6437870860099792), (397, 0.6331275105476379), (365, 0.6167195439338684), (215, 0.6127538084983826), (38, 0.6100133061408997), (232, 0.6056990623474121), (237, 0.5994035005569458), (375, 0.5992918610572815)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 9 
+Positive: [(158, 0.6872212290763855), (300, 0.6807947158813477), (9, 0.6472020745277405), (397, 0.6289830803871155), (38, 0.6275352835655212), (365, 0.6239572763442993), (232, 0.622428297996521), (215, 0.619778037071228), (375, 0.6077350378036499), (237, 0.6075698137283325)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6705556511878967), (300, 0.6625936627388), (9, 0.6299402117729187), (397, 0.6171622276306152), (365, 0.6090884804725647), (215, 0.6049126982688904), (232, 0.6011741757392883), (38, 0.5945661664009094), (214, 0.5861563682556152), (211, 0.5851102471351624)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 10 
+Positive: [(158, 0.6149469614028931), (300, 0.6102213263511658), (397, 0.5725763440132141), (9, 0.5655331015586853), (215, 0.5601732134819031), (365, 0.5568183064460754), (232, 0.5481696128845215), (204, 0.5471209287643433), (237, 0.5467948913574219), (343, 0.5450204610824585)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6806976795196533), (300, 0.6780787110328674), (9, 0.6413206458091736), (397, 0.6304381489753723), (365, 0.6123055815696716), (215, 0.6108139753341675), (38, 0.6092883348464966), (204, 0.5998306274414062), (343, 0.5983629822731018), (85, 0.5955415368080139)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 11 
+Positive: [(158, 0.6898728013038635), (300, 0.6824983358383179), (9, 0.6601032018661499), (397, 0.6391294598579407), (365, 0.6240653991699219), (38, 0.6224266886711121), (215, 0.6206458806991577), (232, 0.6181601881980896), (201, 0.6054085493087769), (354, 0.6033535003662109)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(300, 0.6095962524414062), (158, 0.6093034148216248), (9, 0.5788073539733887), (365, 0.5688642859458923), (215, 0.5642607808113098), (397, 0.5590189099311829), (38, 0.5589741468429565), (232, 0.5574001669883728), (375, 0.5382804870605469), (237, 0.5365955829620361)] 
+1st Neg Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Sentiment #: 12 
+Positive: [(300, 0.6195381879806519), (158, 0.6138560771942139), (9, 0.5923833250999451), (397, 0.5773765444755554), (201, 0.5743905901908875), (354, 0.570987343788147), (343, 0.5664508938789368), (204, 0.5656613707542419), (232, 0.5649205446243286), (85, 0.5638313293457031)] 
+1st Pos Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Negative: [(158, 0.5937305092811584), (300, 0.5898364186286926), (9, 0.5405453443527222), (365, 0.5343603491783142), (215, 0.5314256548881531), (397, 0.529961109161377), (214, 0.527508556842804), (232, 0.5256096720695496), (211, 0.5217697620391846), (354, 0.5190893411636353)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 13 
+Positive: [(158, 0.6690998673439026), (300, 0.6561440825462341), (9, 0.6374067068099976), (397, 0.6121203899383545), (365, 0.5988821387290955), (232, 0.596696138381958), (215, 0.5907254815101624), (38, 0.5905646085739136), (343, 0.5830686688423157), (204, 0.5820547342300415)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6782013773918152), (300, 0.6754951477050781), (9, 0.6410219669342041), (397, 0.6242256164550781), (365, 0.6202748417854309), (215, 0.6155892610549927), (38, 0.6130375266075134), (232, 0.6080893278121948), (343, 0.5872875452041626), (375, 0.5865093469619751)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 14 
+Positive: [(158, 0.6866523623466492), (300, 0.6756895780563354), (9, 0.6531755924224854), (397, 0.6330926418304443), (232, 0.6206865906715393), (365, 0.6187886595726013), (215, 0.6132647395133972), (38, 0.6058509349822998), (201, 0.5973342657089233), (237, 0.5961500406265259)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6722248196601868), (300, 0.6555479168891907), (9, 0.6336091160774231), (397, 0.6200372576713562), (365, 0.6172533631324768), (215, 0.6110736131668091), (232, 0.6071513295173645), (38, 0.599428117275238), (237, 0.5821201205253601), (375, 0.5792484283447266)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Sentiment #: 15 
+Positive: [(300, 0.6602739095687866), (158, 0.6548141837120056), (9, 0.6220975518226624), (397, 0.615526556968689), (38, 0.6045026779174805), (365, 0.5882591605186462), (215, 0.5871787667274475), (343, 0.5834370255470276), (204, 0.5821000933647156), (85, 0.5815102458000183)] 
+1st Pos Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Negative: [(300, 0.6877409219741821), (158, 0.6834683418273926), (9, 0.6512482166290283), (397, 0.642430305480957), (38, 0.6211471557617188), (365, 0.620137631893158), (215, 0.6157492399215698), (204, 0.6120222806930542), (232, 0.6119163036346436), (343, 0.6104673743247986)] 
+1st Neg Sim: 
+ Tags: 300, PPL, 2019-10-09 00:00:00, -0.025571858, 
+ Item: <<pakistan psx ppl is key supplier of natural gas in the country the company is engaged in conducting exploration prospecting>> 
+
+Sentiment #: 16 
+Positive: [(158, 0.684420108795166), (300, 0.6669609546661377), (9, 0.6441258788108826), (397, 0.6404979825019836), (365, 0.6303651928901672), (215, 0.6293193697929382), (232, 0.6266986727714539), (375, 0.6180871725082397), (237, 0.6159003973007202), (38, 0.6109563708305359)] 
+1st Pos Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+
+Negative: [(158, 0.6415591835975647), (300, 0.6301438808441162), (9, 0.6047566533088684), (214, 0.5862818360328674), (211, 0.5823268890380859), (397, 0.5802239179611206), (232, 0.579815685749054), (365, 0.5750163793563843), (215, 0.5716323256492615), (38, 0.5654569864273071)] 
+1st Neg Sim: 
+ Tags: 158, OGDC, 2020-12-25 00:00:00, 0.009121213, 
+ Item: <<islamabad the has approved allocation of additional gas from dhoksultanfield to thirdparty through auction official sources told dhoksultanx well in>> 
+

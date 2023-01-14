@@ -1,0 +1,68 @@
+Positive Vec: #: 0, vec: pso increase better pso increase outstanding pso increase well pso increase save pso increase improved pso increase legal pso increase reached pso increase best pso increase effective pso increase shared pso increase committed pso increase huge pso increase clear pso increase positive pso increase agreed pso increase respectively pso increase granted
+
+Negative Vec: #: 0, vec: pso increase falling pso increase lower pso increase charged pso increase failed pso increase negative pso increase affected pso increase limited pso increase low
+
+Positive Vec: #: 1, vec: pso generation awarded pso generation legal pso generation good pso generation save pso generation recommended pso generation agreed pso generation increased pso generation successfully pso generation huge pso generation respectively pso generation supported pso generation clear pso generation best
+
+Negative Vec: #: 1, vec: pso generation falling pso generation limited pso generation charged pso generation failed pso generation lower pso generation severe
+
+Positive Vec: #: 2, vec: pso crude legal pso crude improved pso crude approved pso crude increased pso crude effective pso crude shared pso crude respectively pso crude granted pso crude significant pso crude recommended pso crude allow pso crude positive pso crude committed
+
+Negative Vec: #: 2, vec: pso crude falling pso crude charged pso crude lower pso crude gross pso crude low pso crude failed
+
+Positive Vec: #: 3, vec: pso price outstanding pso price reached pso price better pso price legal pso price awarded pso price recommended pso price save pso price good pso price approved pso price well pso price successfully pso price granted pso price allow pso price clear pso price agreed pso price supported pso price best pso price natural pso price significant pso price ensure pso price positive pso price respectively
+
+Negative Vec: #: 3, vec: pso price limited pso price failed pso price charged pso price severe pso price affected
+
+Positive Vec: #: 4, vec: pso spot best pso spot better pso spot increased pso spot legal pso spot save pso spot huge pso spot approved pso spot improved pso spot reached pso spot well pso spot respectively pso spot supported pso spot ensure pso spot recommended pso spot awarded pso spot granted pso spot successfully pso spot committed pso spot clear pso spot shared pso spot positive
+
+Negative Vec: #: 4, vec: pso spot lower pso spot charged pso spot falling pso spot failed pso spot limited pso spot negative
+
+Positive Vec: #: 5, vec: pso ppl legal pso ppl best pso ppl improved pso ppl increased pso ppl huge pso ppl reached pso ppl allow pso ppl shared pso ppl supported pso ppl clear
+
+Negative Vec: #: 5, vec: pso ppl limited pso ppl gross pso ppl negative pso ppl failed pso ppl severe pso ppl low
+
+Positive Vec: #: 6, vec: pso towards outstanding pso towards reached pso towards improved pso towards recommended pso towards increased pso towards respectively pso towards significant pso towards shared pso towards natural pso towards granted pso towards allow pso towards supported pso towards clear
+
+Negative Vec: #: 6, vec: pso towards gross pso towards limited pso towards affected pso towards failed pso towards negative pso towards lower
+
+Positive Vec: #: 7, vec: pso tons increased pso tons better pso tons well pso tons reached pso tons granted pso tons improved pso tons engaged pso tons legal pso tons effective pso tons good pso tons allow pso tons best pso tons awarded pso tons respectively pso tons shared pso tons improve pso tons successfully pso tons approved pso tons clear pso tons recommended pso tons significant pso tons committed
+
+Negative Vec: #: 7, vec: pso tons limited pso tons affected pso tons charged pso tons negative pso tons failed
+
+Positive Vec: #: 8, vec: pso chairman outstanding pso chairman save pso chairman huge pso chairman granted pso chairman engaged pso chairman reached pso chairman natural pso chairman well pso chairman improved pso chairman best pso chairman good pso chairman increased pso chairman effective pso chairman approved pso chairman recommended pso chairman ensure pso chairman improve pso chairman awarded pso chairman shared pso chairman agreed
+
+Negative Vec: #: 8, vec: pso chairman falling pso chairman failed pso chairman severe
+
+Positive Vec: #: 9, vec: pso versus outstanding pso versus legal pso versus huge pso versus increased pso versus best pso versus good pso versus approved pso versus reached pso versus successfully pso versus respectively pso versus clear pso versus agreed pso versus supported pso versus recommended pso versus natural pso versus improve
+
+Negative Vec: #: 9, vec: pso versus limited pso versus gross pso versus charged pso versus lower pso versus affected pso versus low pso versus severe pso versus failed
+
+Positive Vec: #: 10, vec: pso shortage legal pso shortage outstanding pso shortage increased pso shortage better pso shortage engaged pso shortage save pso shortage well pso shortage awarded pso shortage improved pso shortage effective pso shortage respectively pso shortage recommended pso shortage good pso shortage improve pso shortage natural pso shortage best pso shortage granted pso shortage shared
+
+Negative Vec: #: 10, vec: pso shortage falling pso shortage limited pso shortage affected pso shortage negative pso shortage charged pso shortage failed
+
+Positive Vec: #: 11, vec: pso cash reached pso cash awarded pso cash approved pso cash huge pso cash better pso cash engaged pso cash effective pso cash best pso cash well pso cash legal pso cash positive pso cash good pso cash ensure pso cash clear pso cash committed
+
+Negative Vec: #: 11, vec: pso cash falling pso cash gross pso cash limited pso cash negative pso cash failed pso cash low pso cash severe
+
+Positive Vec: #: 12, vec: pso company outstanding pso company save pso company better pso company engaged pso company improved pso company recommended pso company effective pso company committed pso company agreed pso company ensure pso company allow pso company successfully pso company best pso company improve pso company clear pso company shared
+
+Negative Vec: #: 12, vec: pso company falling pso company charged pso company negative pso company affected pso company severe
+
+Positive Vec: #: 13, vec: pso tariff legal pso tariff outstanding pso tariff approved pso tariff improved pso tariff engaged pso tariff better pso tariff save pso tariff best pso tariff increased pso tariff huge pso tariff improve pso tariff successfully pso tariff natural pso tariff good pso tariff shared pso tariff agreed pso tariff awarded pso tariff ensure pso tariff granted pso tariff committed
+
+Negative Vec: #: 13, vec: pso tariff charged pso tariff limited pso tariff negative pso tariff severe
+
+Positive Vec: #: 14, vec: pso law improved pso law legal pso law approved pso law supported pso law effective pso law agreed pso law well pso law committed pso law ensure pso law successfully pso law clear pso law granted pso law natural
+
+Negative Vec: #: 14, vec: pso law negative pso law severe pso law gross pso law failed pso law charged pso law limited pso law lower
+
+Positive Vec: #: 15, vec: pso week outstanding pso week save pso week better pso week well pso week ensure pso week huge pso week awarded pso week best pso week significant pso week allow pso week approved pso week effective pso week committed pso week successfully pso week good pso week recommended pso week positive pso week shared
+
+Negative Vec: #: 15, vec: pso week falling pso week failed pso week negative pso week charged pso week limited pso week affected pso week lower pso week severe
+
+Positive Vec: #: 16, vec: pso consortium reached pso consortium better pso consortium outstanding pso consortium awarded pso consortium improved pso consortium huge pso consortium legal pso consortium approved pso consortium save pso consortium successfully pso consortium increased pso consortium effective pso consortium allow pso consortium best pso consortium supported pso consortium well pso consortium good pso consortium agreed
+
+Negative Vec: #: 16, vec: pso consortium falling pso consortium limited pso consortium negative pso consortium gross pso consortium charged pso consortium affected pso consortium failed pso consortium lower pso consortium severe pso consortium low
+

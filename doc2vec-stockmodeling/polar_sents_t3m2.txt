@@ -1,0 +1,68 @@
+Positive Sent: #: 0, Sent: pso increase well pso increase better pso increase best pso increase agreed pso increase save pso increase committed pso increase effective pso increase shared pso increase reached pso increase respectively pso increase improved pso increase clear pso increase legal pso increase outstanding pso increase granted pso increase huge pso increase positive
+
+Negative Sent: #: 0, Sent: pso increase lower pso increase falling pso increase charged pso increase failed pso increase negative pso increase low pso increase affected pso increase limited
+
+Positive Sent: #: 1, Sent: pso generation supported pso generation awarded pso generation recommended pso generation legal pso generation respectively pso generation huge pso generation good pso generation increased pso generation save pso generation agreed pso generation successfully pso generation clear pso generation best
+
+Negative Sent: #: 1, Sent: pso generation charged pso generation severe pso generation falling pso generation limited pso generation failed pso generation lower
+
+Positive Sent: #: 2, Sent: pso crude legal pso crude recommended pso crude respectively pso crude significant pso crude shared pso crude improved pso crude approved pso crude granted pso crude allow pso crude effective pso crude increased pso crude positive pso crude committed
+
+Negative Sent: #: 2, Sent: pso crude gross pso crude lower pso crude charged pso crude falling pso crude low pso crude failed
+
+Positive Sent: #: 3, Sent: pso price reached pso price agreed pso price outstanding pso price awarded pso price legal pso price supported pso price significant pso price respectively pso price better pso price clear pso price granted pso price approved pso price positive pso price allow pso price well pso price ensure pso price save pso price best pso price natural pso price good pso price recommended pso price successfully
+
+Negative Sent: #: 3, Sent: pso price failed pso price limited pso price charged pso price affected pso price severe
+
+Positive Sent: #: 4, Sent: pso spot best pso spot increased pso spot huge pso spot legal pso spot save pso spot recommended pso spot approved pso spot better pso spot ensure pso spot successfully pso spot well pso spot committed pso spot reached pso spot positive pso spot clear pso spot respectively pso spot supported pso spot granted pso spot shared pso spot improved pso spot awarded
+
+Negative Sent: #: 4, Sent: pso spot lower pso spot failed pso spot charged pso spot limited pso spot falling pso spot negative
+
+Positive Sent: #: 5, Sent: pso ppl best pso ppl legal pso ppl allow pso ppl increased pso ppl huge pso ppl supported pso ppl improved pso ppl clear pso ppl reached pso ppl shared
+
+Negative Sent: #: 5, Sent: pso ppl limited pso ppl low pso ppl failed pso ppl negative pso ppl severe pso ppl gross
+
+Positive Sent: #: 6, Sent: pso towards reached pso towards outstanding pso towards allow pso towards shared pso towards increased pso towards supported pso towards improved pso towards granted pso towards respectively pso towards significant pso towards natural pso towards clear pso towards recommended
+
+Negative Sent: #: 6, Sent: pso towards failed pso towards affected pso towards limited pso towards gross pso towards lower pso towards negative
+
+Positive Sent: #: 7, Sent: pso tons increased pso tons granted pso tons well pso tons successfully pso tons reached pso tons better pso tons recommended pso tons significant pso tons improved pso tons shared pso tons best pso tons effective pso tons awarded pso tons engaged pso tons improve pso tons good pso tons legal pso tons respectively pso tons committed pso tons allow pso tons clear pso tons approved
+
+Negative Sent: #: 7, Sent: pso tons affected pso tons charged pso tons limited pso tons failed pso tons negative
+
+Positive Sent: #: 8, Sent: pso chairman granted pso chairman natural pso chairman huge pso chairman save pso chairman reached pso chairman ensure pso chairman best pso chairman outstanding pso chairman well pso chairman agreed pso chairman recommended pso chairman effective pso chairman approved pso chairman improve pso chairman shared pso chairman good pso chairman engaged pso chairman increased pso chairman awarded pso chairman improved
+
+Negative Sent: #: 8, Sent: pso chairman severe pso chairman failed pso chairman falling
+
+Positive Sent: #: 9, Sent: pso versus respectively pso versus legal pso versus outstanding pso versus best pso versus recommended pso versus clear pso versus natural pso versus improve pso versus huge pso versus increased pso versus approved pso versus good pso versus agreed pso versus supported pso versus reached pso versus successfully
+
+Negative Sent: #: 9, Sent: pso versus limited pso versus low pso versus lower pso versus charged pso versus severe pso versus gross pso versus affected pso versus failed
+
+Positive Sent: #: 10, Sent: pso shortage respectively pso shortage legal pso shortage improve pso shortage increased pso shortage awarded pso shortage good pso shortage well pso shortage engaged pso shortage recommended pso shortage effective pso shortage save pso shortage shared pso shortage natural pso shortage granted pso shortage best pso shortage better pso shortage outstanding pso shortage improved
+
+Negative Sent: #: 10, Sent: pso shortage falling pso shortage limited pso shortage affected pso shortage negative pso shortage failed pso shortage charged
+
+Positive Sent: #: 11, Sent: pso cash awarded pso cash reached pso cash approved pso cash huge pso cash best pso cash positive pso cash effective pso cash well pso cash clear pso cash good pso cash engaged pso cash committed pso cash better pso cash ensure pso cash legal
+
+Negative Sent: #: 11, Sent: pso cash falling pso cash gross pso cash low pso cash severe pso cash negative pso cash failed pso cash limited
+
+Positive Sent: #: 12, Sent: pso company agreed pso company save pso company committed pso company ensure pso company improve pso company outstanding pso company effective pso company allow pso company engaged pso company improved pso company successfully pso company clear pso company better pso company shared pso company best pso company recommended
+
+Negative Sent: #: 12, Sent: pso company falling pso company charged pso company negative pso company severe pso company affected
+
+Positive Sent: #: 13, Sent: pso tariff legal pso tariff approved pso tariff improve pso tariff successfully pso tariff natural pso tariff best pso tariff outstanding pso tariff improved pso tariff shared pso tariff ensure pso tariff good pso tariff engaged pso tariff huge pso tariff agreed pso tariff save pso tariff committed pso tariff increased pso tariff granted pso tariff awarded pso tariff better
+
+Negative Sent: #: 13, Sent: pso tariff charged pso tariff limited pso tariff negative pso tariff severe
+
+Positive Sent: #: 14, Sent: pso law legal pso law improved pso law supported pso law ensure pso law committed pso law approved pso law natural pso law successfully pso law effective pso law clear pso law agreed pso law granted pso law well
+
+Negative Sent: #: 14, Sent: pso law severe pso law negative pso law failed pso law gross pso law charged pso law limited pso law lower
+
+Positive Sent: #: 15, Sent: pso week well pso week save pso week ensure pso week significant pso week recommended pso week good pso week outstanding pso week best pso week better pso week awarded pso week huge pso week committed pso week successfully pso week positive pso week approved pso week shared pso week allow pso week effective
+
+Negative Sent: #: 15, Sent: pso week failed pso week negative pso week falling pso week charged pso week severe pso week limited pso week lower pso week affected
+
+Positive Sent: #: 16, Sent: pso consortium reached pso consortium successfully pso consortium awarded pso consortium better pso consortium huge pso consortium approved pso consortium good pso consortium agreed pso consortium best pso consortium improved pso consortium outstanding pso consortium legal pso consortium effective pso consortium increased pso consortium save pso consortium allow pso consortium well pso consortium supported
+
+Negative Sent: #: 16, Sent: pso consortium negative pso consortium gross pso consortium severe pso consortium limited pso consortium falling pso consortium lower pso consortium failed pso consortium low pso consortium charged pso consortium affected
+

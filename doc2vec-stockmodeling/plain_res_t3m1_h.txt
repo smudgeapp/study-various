@@ -1,0 +1,85 @@
+Serial #: 0 
+1st Sim: 
+ Tags: 12, PSO, 2020-11-05 00:00:00, -0.006878962 
+, Item: <<pakistan stateoillimited is the country largest omc and is engaged in marketing and distribution of all petroleum products in the>> 
+
+Serial #: 1 
+1st Sim: 
+ Tags: 11, PSO, 2020-05-21 00:00:00, -0.005226233 
+, Item: <<the downstream oil and gas sector has been facing the challenge of falling consumption and sales much before covid started>> 
+
+Serial #: 2 
+1st Sim: 
+ Tags: 108, PSO, 2022-03-11 00:00:00, -0.004227408 
+, Item: <<the power utility which intends to inaugurate first unit of mw its rlngfired power of mw on march or has>> 
+
+Serial #: 3 
+1st Sim: 
+ Tags: 349, PPL, 2022-02-22 00:00:00, 0.013646756 
+, Item: <<according to was granted over block number zoneii covering an areas of sq kilometres located in districts khan and musakehl>> 
+
+Serial #: 4 
+1st Sim: 
+ Tags: 54, PSO, 2021-07-09 00:00:00, -0.001697368 
+, Item: <<islamabad the federal government will inaugurate wop on september for supply of gasoline from karachi to multan the allocation for>> 
+
+Serial #: 5 
+1st Sim: 
+ Tags: 24, PSO, 2019-07-22 00:00:00, -0.00520317 
+, Item: <<san francisco microsoft on monday announced billion investment in an openai ethical artificial intelligence project backed by tesla elonmusk and>> 
+
+Serial #: 6 
+1st Sim: 
+ Tags: 11, PSO, 2020-05-21 00:00:00, -0.005226233 
+, Item: <<the downstream oil and gas sector has been facing the challenge of falling consumption and sales much before covid started>> 
+
+Serial #: 7 
+1st Sim: 
+ Tags: 348, PPL, 2022-08-23 00:00:00, -0.006481739 
+, Item: <<ppl board of directors approved rs million for the rehabilitation of the affected local communities in the recent floods in>> 
+
+Serial #: 8 
+1st Sim: 
+ Tags: 11, PSO, 2020-05-21 00:00:00, -0.005226233 
+, Item: <<the downstream oil and gas sector has been facing the challenge of falling consumption and sales much before covid started>> 
+
+Serial #: 9 
+1st Sim: 
+ Tags: 108, PSO, 2022-03-11 00:00:00, -0.004227408 
+, Item: <<the power utility which intends to inaugurate first unit of mw its rlngfired power of mw on march or has>> 
+
+Serial #: 10 
+1st Sim: 
+ Tags: 8, PSO, 2019-08-24 00:00:00, -0.013562588 
+, Item: <<the selling buying rates for currency notes of major currencies issued by nationalbank nbp here on friday august>> 
+
+Serial #: 11 
+1st Sim: 
+ Tags: 108, PSO, 2022-03-11 00:00:00, -0.004227408 
+, Item: <<the power utility which intends to inaugurate first unit of mw its rlngfired power of mw on march or has>> 
+
+Serial #: 12 
+1st Sim: 
+ Tags: 11, PSO, 2020-05-21 00:00:00, -0.005226233 
+, Item: <<the downstream oil and gas sector has been facing the challenge of falling consumption and sales much before covid started>> 
+
+Serial #: 13 
+1st Sim: 
+ Tags: 44, PSO, 2021-11-26 00:00:00, 0.011445767 
+, Item: <<traffic remained thin on roads although some outlets owned and operated by major omcs including pso and shell gas and>> 
+
+Serial #: 14 
+1st Sim: 
+ Tags: 12, PSO, 2020-11-05 00:00:00, -0.006878962 
+, Item: <<pakistan stateoillimited is the country largest omc and is engaged in marketing and distribution of all petroleum products in the>> 
+
+Serial #: 15 
+1st Sim: 
+ Tags: 108, PSO, 2022-03-11 00:00:00, -0.004227408 
+, Item: <<the power utility which intends to inaugurate first unit of mw its rlngfired power of mw on march or has>> 
+
+Serial #: 16 
+1st Sim: 
+ Tags: 12, PSO, 2020-11-05 00:00:00, -0.006878962 
+, Item: <<pakistan stateoillimited is the country largest omc and is engaged in marketing and distribution of all petroleum products in the>> 
+
