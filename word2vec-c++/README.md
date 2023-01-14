@@ -1,4 +1,4 @@
-# WORD2VEC Implementation in C++ [using components from the general neural network in this repo](./neuralnetwork)
+# WORD2VEC Implementation in C++ using components from the general neural network in this repo
 
 This is an implementation of the word2vec model in c++ using the basic components of the neural network, separately contained in this repo.
 
@@ -22,7 +22,7 @@ There are several options for running the training.
 As a result of the different training modalities, the corpus input methods to the network also vary.
 
 1. For the simple 'train' method only 'setTrainingDataSGAllWords' will work.
-2. For 'trainSG' input data can come from 'setTrainingDataSGBothSide' where window moves, over a its length, including words before the target word and after it. The 'setTrainingDataSGFwd' window will move including words only after the target word.
+2. For 'trainSG' input data can come from 'setTrainingDataSGBothSide' where window moves, over its length, including words before the target word and after it. The 'setTrainingDataSGFwd' window will move including words only after the target word.
 
 ## Instructions
 
