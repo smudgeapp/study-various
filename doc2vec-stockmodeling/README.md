@@ -1,6 +1,6 @@
 # DOC2VEC (gensim) for News Analysis to make Stock Predictions
 
-Doc2Vec implementation for news analysis to make stock predictions is not a novel idea. There are numerous implementations for doing so, using various doc2vec libraries, other than gensim.
+Doc2Vec implementation for news analysis to make stock predictions is not new. There are numerous implementations for doing so, using various doc2vec libraries, other than gensim.
 
 This particular implementation, extends the same concept to make a more generalized version that can be applied in a wider context than that limited by the initial training corpus.
 
