@@ -53,7 +53,7 @@ As a result, the current testing is stuck at Steps 3 & 4 and further implementat
 
 What is, perhaps, most anomalous, is that the combined (=com) model inferences are returning more close to the desired output than the dbow and dm concatenated inferences. If there was just variation in com inference results, it could have been appropriated to random chance. But the results are also returning the target in more cases, which indicates, there is some sort of link. This has been observed in various training runs of the d2v models, with varying epochs, window sizes, etc. Furthermore, when simple dbow model is used, which is the type of the denoted com model, the results are similarly inconclusive to dbow and dm inference iterations. [See the last test under Discussion section.](./TESTRESULTS_JAN23.md)
 
-However, the math behind the com inferences do not resolve with the definition of the doc2vec neural network. For model robustness, the neural network math must resolve, shouldn't it?
+However, the math behind the com inferences do not resolve with the definition of the doc2vec neural network. For model robustness, its application in general, the neural network math must resolve, shouldn't it?
 
 This requires further exploration. The results are left at this point, till further tests. 
 
