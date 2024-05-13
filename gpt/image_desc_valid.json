@@ -1,0 +1,54 @@
+[
+	{
+		"type": "Platform",
+		"tweet": "🌍 RallyBook: Connect with activists worldwide! Our platform unites individuals passionate about social change. #GlobalActivism",
+		"image": "world map with diverse group of people joining hands"
+	},
+	{
+		"type": "Platform",
+		"tweet": "📢 RallyBook: Raise your voice for positive change! Join our platform and amplify your activism. #RaiseYourVoice",
+		"image": "illustration of a person speaking into a megaphone"
+	},
+	{
+		"type": "Platform",
+		"tweet": "🔍 RallyBook: Explore opportunities for activism! Our platform provides resources and connections to support your cause. #ExploreActivism",
+		"image": "magnifying glass zooming in on a globe with pins representing activism hotspots"
+	},
+	{
+		"type": "Platform",
+		"tweet": "🌟 RallyBook: Spark change with us! Join a community of passionate activists dedicated to making a difference. #SparkChange",
+		"image": "illustration of a matchstick igniting a flame"
+	},
+	{
+		"type": "Platform",
+		"tweet": "🌈 RallyBook: Embrace diversity and inclusivity! Our platform welcomes activists from all backgrounds to join the movement. #InclusiveActivism",
+		"image": "rainbow flag symbolizing diversity and inclusivity"
+	},
+	
+	{
+		"type": "Activism",
+		"tweet": "🌟 Activism lights the path toward positive change! Join the movement and be a beacon of hope in your community. #BeTheChange",
+		"image": "illustration of a torch illuminating a dark path"
+	},
+	{
+		"type": "Activism",
+		"tweet": "📣 Activism amplifies voices that demand justice! Together, we can create a world where everyone's rights are respected. #JusticeForAll",
+		"image": "megaphone icon with sound waves spreading out"
+	},
+	{
+		"type": "Activism",
+		"tweet": "✊ Activism is the fuel for progress! Let's join hands and work towards a future where equality and freedom prevail. #ProgressTogether",
+		"image": "diverse group of people marching together in a protest"
+	},
+	{
+		"type": "Activism",
+		"tweet": "🌈 Activism celebrates diversity and inclusion! Together, we can build a society where everyone feels valued and respected. #DiverseVoices",
+		"image": "illustration of diverse people standing together in unity"
+	},
+	{
+		"type": "Activism",
+		"tweet": "🌍 Activism knows no boundaries! Let's come together to address global challenges and create a better world for all. #GlobalChange",
+		"image": "world map with interconnected network lines symbolizing global activism"
+	}
+
+]
