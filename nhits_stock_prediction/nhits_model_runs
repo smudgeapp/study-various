@@ -10,17 +10,11 @@ from darts.models import RNNModel
 from darts.metrics import mae
 from psx import stocks, tickers
 
-
-##wtl = stocks('WTL', start=dt.date(2022, 1, 1), end=dt.date.today())
-##
-##wtl.to_csv('wtl_2022.csv', sep=',')
-
 def convert_df_price(data, price_data, lag):
     df = data.assign(Close = lambda x: (0.0))
     
     for d_ind, p_ind in zip(data.index, price_data.index):
         df.Close.at[d_ind] = price_data.Close.at[p_ind] * (1 + data.Change.at[d_ind])
-        
         
     return df
 
@@ -130,6 +124,9 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
 
     #plt.show()
 
+wtl = stocks('WTL', start=dt.date(2022, 1, 1), end=dt.date.today())
+
+wtl.to_csv('wtl_2022.csv', sep=',')
 
 series = TimeSeries.from_csv('wtl.csv', time_col='Date', value_cols=['Close'], freq='B')
 
