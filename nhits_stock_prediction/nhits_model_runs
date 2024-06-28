@@ -1,0 +1,415 @@
+import pandas as pd
+import datetime as dt
+import matplotlib.pyplot as plt
+from darts import TimeSeries
+from darts.utils.statistics import check_seasonality, plot_acf, plot_pacf, stationarity_tests
+from darts.utils.missing_values import fill_missing_values
+from darts.models import NHiTSModel
+from darts.models.forecasting.baselines import NaiveMovingAverage
+from darts.models import RNNModel
+from darts.metrics import mae
+from psx import stocks, tickers
+
+
+##wtl = stocks('WTL', start=dt.date(2022, 1, 1), end=dt.date.today())
+##
+##wtl.to_csv('wtl_2022.csv', sep=',')
+
+def convert_df_price(data, price_data, lag):
+    df = data.assign(Close = lambda x: (0.0))
+    
+    for d_ind, p_ind in zip(data.index, price_data.index):
+        df.Close.at[d_ind] = price_data.Close.at[p_ind] * (1 + data.Change.at[d_ind])
+        
+        
+    return df
+
+
+def price_conversion(prediction_series, prediction_prices, predict_lag):
+    price_convert_df = convert_df_price(prediction_series.pd_dataframe(copy=True),
+                                     prediction_prices, predict_lag)
+                                     
+    df = price_convert_df.reset_index(names='Date')
+
+    price_convert_series = TimeSeries.from_dataframe(df,
+                                                     time_col='Date',
+                                                  value_cols=['Close', 'Change'],
+                                                  freq='B')
+    return price_convert_df, price_convert_series
+
+
+def nhits_fit(data, model_name, input_len, output_len,
+              epochs=100, stacks=3, blocks=1, kernel=None,
+              val_series=None,
+              rand_state=42):
+    model = NHiTSModel(
+        input_chunk_length=input_len,
+        output_chunk_length=output_len,
+        random_state=rand_state,
+        num_blocks=blocks,
+        num_stacks=stacks)
+    if kernel is not None:
+        model.pooling_kernel_sizes = kernel
+    if val_series is not None:
+        model.val_series = val_series
+    model.fit(data, epochs=epochs, verbose=False)
+    model_n = 'nhits_model/%s_%s.pt' % (model_name, str(stacks))
+    model.save(model_n)
+    return model_n
+
+
+def nhits_predict(model_name, predict_len):
+    nhits = RNNModel.load(model_name)
+    print('Model Kernel Configuration: ', nhits.pooling_kernel_sizes)
+    predictions = nhits.predict(n=predict_len)
+    return predictions
+
+
+def four_set_plot(train, test, data1, data2, data3, data4, key, **titles): 
+
+    figure, axis = plt.subplots(2, 2, sharex=True)
+    labels = ['Train', 'Test', 'Prediction']
+    
+
+    dat_range = pd.period_range(start='2019-1-1', end='2024-6-26',
+                             freq='Y')
+
+    axis[0, 0].plot(train.index, train[key],
+                    label='Train',
+                           color='black')
+    axis[0, 0].plot(test.index, test[key],
+                           label='Test',
+                           color='blue')
+    axis[0, 0].plot(data1.index, data1[key],
+                           label='Predictions',
+                           color='purple')
+    plt.sca(axis[0, 0])
+##    plt.xticks(dat_range, rotation=90)
+##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
+    axis[0, 0].set_title(titles['title1'])
+                           
+
+    axis[0, 1].plot(train.index, train[key],
+                           label='Train',
+                           color='black')
+    axis[0, 1].plot(test.index, test[key],
+                           label='Test',
+                           color='blue')
+    axis[0, 1].plot(data2.index, data2[key],
+                           label='Predictions',
+                           color='purple')
+    plt.sca(axis[0, 1])
+##    plt.xticks(dat_range, rotation=90)
+##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
+    axis[0, 1].set_title(titles['title2'])
+
+    axis[1, 0].plot(train.index, train[key],
+                           label='Train',
+                           color='black')
+    axis[1, 0].plot(test.index, test[key],
+                           label='Test',
+                           color='blue')
+    axis[1, 0].plot(data3.index, data3[key],
+                           label='Predictions',
+                           color='purple')
+    plt.sca(axis[1, 0])
+##    plt.xticks(dat_range, rotation=90)
+##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
+    axis[1, 0].set_title(titles['title3'])
+
+    axis[1, 1].plot(train.index, train[key],
+                           label='Train',
+                           color='black')
+    axis[1, 1].plot(test.index, test[key],
+                           label='Test',
+                           color='blue')
+    axis[1, 1].plot(data4.index, data4[key],
+                           label='Predictions',
+                           color='purple')
+    plt.sca(axis[1, 1])
+##    plt.xticks(dat_range, rotation=90)
+##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
+    axis[1, 1].set_title(titles['title4'])
+
+    figure.legend(labels, loc='lower right',
+                  ncol=len(labels)
+                  )
+    figure.suptitle(titles['main_title'])
+
+    #plt.show()
+
+
+
+series = TimeSeries.from_csv('wtl.csv', time_col='Date',
+                             value_cols=['Close'],
+                             freq='B')
+
+series = fill_missing_values(series)
+
+series_df = series.pd_dataframe(copy=True)
+series_df = series_df.reset_index(names='Date')
+
+prediction_lag = 300
+
+series_df = series_df.assign(Change = lambda x: (0.0))
+
+final_index = series_df.tail(1)
+
+final_index = final_index.index.values[0]
+
+
+for i, ind in enumerate(series_df.index):
+    if ind + prediction_lag > final_index:
+        break
+    else:
+        series_df.Change.at[ind + prediction_lag] = series_df.Close.at[ind + prediction_lag]/series_df.Close.at[ind] - 1
+
+
+series = TimeSeries.from_dataframe(series_df[prediction_lag:], time_col='Date',
+                                   value_cols=['Close', 'Change'],
+                                   freq='B')
+
+total_len = len(series)
+train_len = total_len - prediction_lag
+train_sub_len = int(round(0.90 * train_len))
+valid_len = train_len - train_sub_len
+test_len = prediction_lag
+in_len = int(round(0.90 * train_sub_len))
+out_len = train_sub_len - in_len
+
+print(f'Total: {total_len}, Train: {train_len}, Train_Sub: {train_sub_len}, Valid: {valid_len}, Test: {test_len}, Train_Input: {in_len}, Train_Output: {out_len}')
+  
+
+##ser = series['Close']
+##
+##weekly_s, weekly = check_seasonality(ser, m=7, max_lag=30, alpha=0.10)
+##monthly_s, monthly = check_seasonality(ser, m=30, max_lag=90, alpha=0.10)
+##qtr_s, qtly = check_seasonality(ser, m=90, max_lag=180, alpha=0.10)
+##half_s, half = check_seasonality(ser, m=180, max_lag=360, alpha=0.10)
+##check_s, check = check_seasonality(ser, max_lag=30, alpha=0.05)
+##
+##print(f'Weekly: seasonality: {weekly_s}, period = {weekly}')
+##print(f'Monthly: seasonality: {monthly_s}, period = {monthly}')
+##print(f'Quarterly: seasonality: {qtr_s}, period = {qtly}')
+##print(f'Half Yearly: seasonality: {half_s}, period = {half}')
+##print(f'Check Seasonality: seasonality: {check_s}, period = {check}')
+
+
+train, validation, test = series[:-test_len], series[train_sub_len:train_len+valid_len], series[-test_len:]
+
+
+print("train len: ", len(train))
+print('valid len: ', len(validation))
+print("test len: ", len(test))
+
+
+
+kernel_in = ((250,),(180,),(90,),)
+stacks_in = len(kernel_in)
+blocks_in = len(kernel_in[0])
+
+model_3 = nhits_fit(train['Change'], 'wtl_s3', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=3,
+                       kernel=((250,),(180,),(90,),)
+                       )
+
+model_2 = nhits_fit(train['Change'], 'wtl_s2', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=2,
+                       kernel=((250,),(180,))
+                       )
+
+model_1 = nhits_fit(train['Change'], 'wtl_s1', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=1,
+                       kernel=((250,),)
+                       )
+
+model_kernel_250 = nhits_fit(train['Change'], 'wtl_k250', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=1,
+                       kernel=((250,),)
+                       )
+
+model_kernel_180 = nhits_fit(train['Change'], 'wtl_k180', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=1,
+                       kernel=((180,),)
+                       )
+
+model_kernel_90 = nhits_fit(train['Change'], 'wtl_k90', input_len=in_len,
+                       output_len=out_len,
+                       val_series=validation['Change'],
+                       stacks=1,
+                       kernel=((90,),)
+                       )
+
+naive_250 = NaiveMovingAverage(input_chunk_length=250)
+naive_180 = NaiveMovingAverage(input_chunk_length=180)
+naive_90 = NaiveMovingAverage(input_chunk_length=90)
+
+naive_250.fit(train['Change'])
+naive_180.fit(train['Change'])
+naive_90.fit(train['Change'])
+
+
+price_df = train.pd_dataframe(copy=True)[-test_len:]
+
+test_df = test.pd_dataframe(copy=True)
+
+
+pred_nh_3 = nhits_predict(model_3, len(test))
+
+price_nh_3_df, price_nh_3_series = price_conversion(pred_nh_3, price_df,
+                                                 prediction_lag)
+mae_nh_3 = mae(test['Change'], pred_nh_3)
+
+price_mae_nh3 = mae(test['Close'], price_nh_3_series['Close'])
+
+pred_nv_250 = naive_250.predict(test_len)
+pred_nv_180 = naive_180.predict(test_len)
+pred_nv_90 = naive_90.predict(test_len)
+
+price_nv_250_df, price_nv_250_series = price_conversion(pred_nv_250,
+                                                           price_df,
+                                                           prediction_lag)
+price_nv_180_df, price_nv_180_series = price_conversion(pred_nv_180,
+                                                        price_df,
+                                                        prediction_lag)
+price_nv_90_df, price_nv_90_series = price_conversion(pred_nv_90,
+                                                      price_df,
+                                                      prediction_lag)
+
+
+mae_nv_250 = mae(test['Change'], pred_nv_250)
+mae_nv_180 = mae(test['Change'], pred_nv_180)
+mae_nv_90 = mae(test['Change'], pred_nv_90)
+
+
+price_mae_nv250 = mae(test['Close'], price_nv_250_series['Close'])
+price_mae_nv180 = mae(test['Close'], price_nv_180_series['Close'])
+price_mae_nv90 = mae(test['Close'], price_nv_90_series['Close'])
+
+
+
+
+four_set_plot(price_df, test_df, price_nh_3_df, price_nv_250_df,
+                price_nv_180_df, price_nv_90_df, 'Change',
+              main_title='NHiTS vs. MovingAverage (% Change in Stock Price)',
+              title1=f'NHiTS (250, 180, 90) MAE: {round(mae_nh_3, 3)}',
+              title2=f'MovingAverage 250 MAE: {round(mae_nv_250, 3)}',
+              title3=f'MovingAverage 180 MAE: {round(mae_nv_180, 3)}',
+              title4=f'MovingAverage 90 MAE: {round(mae_nv_90, 3)}' 
+              )
+
+four_set_plot(price_df, test_df, price_nh_3_df, price_nv_250_df,
+                price_nv_180_df, price_nv_90_df, 'Close',
+              main_title='NHiTS vs. MovingAverage (Stock Price in PKR)',
+              title1=f'NHiTS (250, 180, 90) MAE: {round(price_mae_nh3, 3)}',
+              title2=f'MovingAverage 250 MAE: {round(price_mae_nv250, 3)}',
+              title3=f'MovingAverage 180 MAE: {round(price_mae_nv180, 3)}',
+              title4=f'MovingAverage 90 MAE: {round(price_mae_nv90, 3)}' 
+              )
+
+pred_nh_2 = nhits_predict(model_2, test_len)
+
+price_nh_2_df, price_nh_2_series = price_conversion(pred_nh_2, price_df,
+                                                    prediction_lag)
+
+pred_nh_1 = nhits_predict(model_1, test_len)
+
+price_nh_1_df, price_nh_1_series = price_conversion(pred_nh_1, price_df,
+                                                    prediction_lag)
+
+mae_nh_2 = mae(test['Change'], pred_nh_2)
+mae_nh_1 = mae(test['Change'], pred_nh_1)
+
+price_mae_nh2 = mae(test['Close'], price_nh_2_series['Close'])
+price_mae_nh1 = mae(test['Close'], price_nh_1_series['Close'])
+
+figure, axis = plt.subplots(3, 1, sharex=True)
+labels = ['Train', 'Test', 'Prediction']   
+
+key3 = 'Close'
+
+axis[0].plot(price_df.index, price_df[key3],
+                label='Train',
+                       color='black')
+axis[0].plot(test_df.index, test_df[key3],
+                       label='Test',
+                       color='blue')
+axis[0].plot(price_nh_3_df.index, price_nh_3_df[key3],
+                       label='Predictions',
+                       color='purple')
+plt.sca(axis[0])
+axis[0].set_title(f'NHiTS (250, 180, 90) MAE: {round(price_mae_nh3, 3)}')
+                       
+
+axis[1].plot(price_df.index, price_df[key3],
+                label='Train',
+                       color='black')
+axis[1].plot(test_df.index, test_df[key3],
+                       label='Test',
+                       color='blue')
+axis[1].plot(price_nh_2_df.index, price_nh_2_df[key3],
+                       label='Predictions',
+                       color='purple')
+plt.sca(axis[1])
+axis[1].set_title(f'NHiTS (250, 180) MAE: {round(price_mae_nh2, 3)}')
+
+axis[2].plot(price_df.index, price_df[key3],
+                label='Train',
+                       color='black')
+axis[2].plot(test_df.index, test_df[key3],
+                       label='Test',
+                       color='blue')
+axis[2].plot(price_nh_1_df.index, price_nh_1_df[key3],
+                       label='Predictions',
+                       color='purple')
+plt.sca(axis[2])
+axis[2].set_title(f'NHiTS (250) MAE: {round(price_mae_nh1, 3)}')
+
+figure.legend(labels, loc='lower right',
+              ncol=len(labels)
+              )
+figure.suptitle('NHiTS Stacks Comparison 3 vs. 2 vs. 1 (Stock Price in PKR)')
+
+#plt.show()
+
+pred_k_250 = nhits_predict(model_kernel_250, test_len)
+
+price_k250_df, price_k250_series = price_conversion(pred_k_250, price_df,
+                                                    prediction_lag)
+pred_k_180 = nhits_predict(model_kernel_180, test_len)
+
+price_k180_df, price_k180_series = price_conversion(pred_k_180, price_df,
+                                                    prediction_lag)
+
+pred_k_90 = nhits_predict(model_kernel_90, test_len)
+
+price_k90_df, price_k90_series = price_conversion(pred_k_90, price_df,
+                                                  prediction_lag)
+
+mae_k250 = mae(test['Change'], pred_k_250)
+mae_k180 = mae(test['Change'], pred_k_180)
+mae_k90 = mae(test['Change'], pred_k_90)
+
+price_mae_k250 = mae(test['Close'], price_k250_series['Close'])
+price_mae_k180 = mae(test['Close'], price_k180_series['Close'])
+price_mae_k90 = mae(test['Close'], price_k90_series['Close'])
+
+four_set_plot(price_df, test_df, price_nh_3_df, price_k250_df, price_k180_df,
+              price_k90_df, 'Close',
+              main_title='NHiTS Stack Kernel Comparison (Stock Price in PKR)',
+              title1=f'Kernel (250, 180, 90) MAE: {round(price_mae_nh3, 3)}',
+              title2=f'Kernel (250) MAE: {round(price_mae_k250, 3)}',
+              title3=f'Kernel (180) MAE: {round(price_mae_k180, 3)}',
+              title4=f'Kernel (90) MAE: {round(price_mae_k90, 3)}')
+
+plt.show()
