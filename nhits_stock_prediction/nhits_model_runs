@@ -84,8 +84,6 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
                            label='Predictions',
                            color='purple')
     plt.sca(axis[0, 0])
-##    plt.xticks(dat_range, rotation=90)
-##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
     axis[0, 0].set_title(titles['title1'])
                            
 
@@ -99,8 +97,6 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
                            label='Predictions',
                            color='purple')
     plt.sca(axis[0, 1])
-##    plt.xticks(dat_range, rotation=90)
-##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
     axis[0, 1].set_title(titles['title2'])
 
     axis[1, 0].plot(train.index, train[key],
@@ -113,8 +109,6 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
                            label='Predictions',
                            color='purple')
     plt.sca(axis[1, 0])
-##    plt.xticks(dat_range, rotation=90)
-##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
     axis[1, 0].set_title(titles['title3'])
 
     axis[1, 1].plot(train.index, train[key],
@@ -127,8 +121,6 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
                            label='Predictions',
                            color='purple')
     plt.sca(axis[1, 1])
-##    plt.xticks(dat_range, rotation=90)
-##    plt.tick_params(axis='x', labelsize=5.0, width=10, pad=10)
     axis[1, 1].set_title(titles['title4'])
 
     figure.legend(labels, loc='lower right',
@@ -139,10 +131,7 @@ def four_set_plot(train, test, data1, data2, data3, data4, key, **titles):
     #plt.show()
 
 
-
-series = TimeSeries.from_csv('wtl.csv', time_col='Date',
-                             value_cols=['Close'],
-                             freq='B')
+series = TimeSeries.from_csv('wtl.csv', time_col='Date', value_cols=['Close'], freq='B')
 
 series = fill_missing_values(series)
 
@@ -165,9 +154,7 @@ for i, ind in enumerate(series_df.index):
         series_df.Change.at[ind + prediction_lag] = series_df.Close.at[ind + prediction_lag]/series_df.Close.at[ind] - 1
 
 
-series = TimeSeries.from_dataframe(series_df[prediction_lag:], time_col='Date',
-                                   value_cols=['Close', 'Change'],
-                                   freq='B')
+series = TimeSeries.from_dataframe(series_df[prediction_lag:], time_col='Date', value_cols=['Close', 'Change'], freq='B')
 
 total_len = len(series)
 train_len = total_len - prediction_lag
@@ -178,35 +165,12 @@ in_len = int(round(0.90 * train_sub_len))
 out_len = train_sub_len - in_len
 
 print(f'Total: {total_len}, Train: {train_len}, Train_Sub: {train_sub_len}, Valid: {valid_len}, Test: {test_len}, Train_Input: {in_len}, Train_Output: {out_len}')
-  
-
-##ser = series['Close']
-##
-##weekly_s, weekly = check_seasonality(ser, m=7, max_lag=30, alpha=0.10)
-##monthly_s, monthly = check_seasonality(ser, m=30, max_lag=90, alpha=0.10)
-##qtr_s, qtly = check_seasonality(ser, m=90, max_lag=180, alpha=0.10)
-##half_s, half = check_seasonality(ser, m=180, max_lag=360, alpha=0.10)
-##check_s, check = check_seasonality(ser, max_lag=30, alpha=0.05)
-##
-##print(f'Weekly: seasonality: {weekly_s}, period = {weekly}')
-##print(f'Monthly: seasonality: {monthly_s}, period = {monthly}')
-##print(f'Quarterly: seasonality: {qtr_s}, period = {qtly}')
-##print(f'Half Yearly: seasonality: {half_s}, period = {half}')
-##print(f'Check Seasonality: seasonality: {check_s}, period = {check}')
-
 
 train, validation, test = series[:-test_len], series[train_sub_len:train_len+valid_len], series[-test_len:]
-
 
 print("train len: ", len(train))
 print('valid len: ', len(validation))
 print("test len: ", len(test))
-
-
-
-kernel_in = ((250,),(180,),(90,),)
-stacks_in = len(kernel_in)
-blocks_in = len(kernel_in[0])
 
 model_3 = nhits_fit(train['Change'], 'wtl_s3', input_len=in_len,
                        output_len=out_len,
@@ -266,8 +230,7 @@ test_df = test.pd_dataframe(copy=True)
 
 pred_nh_3 = nhits_predict(model_3, len(test))
 
-price_nh_3_df, price_nh_3_series = price_conversion(pred_nh_3, price_df,
-                                                 prediction_lag)
+price_nh_3_df, price_nh_3_series = price_conversion(pred_nh_3, price_df, prediction_lag)
 mae_nh_3 = mae(test['Change'], pred_nh_3)
 
 price_mae_nh3 = mae(test['Close'], price_nh_3_series['Close'])
@@ -295,9 +258,6 @@ mae_nv_90 = mae(test['Change'], pred_nv_90)
 price_mae_nv250 = mae(test['Close'], price_nv_250_series['Close'])
 price_mae_nv180 = mae(test['Close'], price_nv_180_series['Close'])
 price_mae_nv90 = mae(test['Close'], price_nv_90_series['Close'])
-
-
-
 
 four_set_plot(price_df, test_df, price_nh_3_df, price_nv_250_df,
                 price_nv_180_df, price_nv_90_df, 'Change',
