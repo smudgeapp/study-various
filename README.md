@@ -1,3 +1,7 @@
+## NOTICE:
+
+### I will be deleting this repo very soon. All of this work will still be available as separate repos.
+
 # VARIOUS PROJECTS
 
 Various projects related to study, research, work and general experimentation.
